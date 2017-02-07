@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "name": "helloworld",
+  "main": "index.html",
+  "window": {
+    "width": 725,
+    "height": 800,
+    "frame": false,
+    "transparent": true,
+    "toolbar": false,
+    "show_in_taskbar": true
+  },
+  "devDependencies": {
+    "nw-builder": "^3.1.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "family": "wx",
+  "name": "wxadmin",
+  "version": "2.7.5",
+  "description": "",
+  "homepage": "",
+  "author": "wxfront",
+  "maintainers": [
+    "wxfront"
+  ],
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "",
+  "xpm": {
+    "type" : "pc",
+    "include": ["**/*"],
+    "exclude": ["静态文件/**"],
+    "nomin": ["cmd/**","plugin/**"]
+  }
+}

@@ -1,0 +1,1195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>    
+<meta http-equiv="Expires" content="0"/>
+<meta name="renderer" content="webkit">
+<title>通讯录-微校管理平台</title>
+<link href="./plugin/bootstrap/css/bootstrap.css?v=2.7.5" type="text/css" rel="stylesheet" />
+<link href="./plugin/bootstrap/css/bootstrap-theme.css?v=2.7.5" type="text/css" rel="stylesheet" />
+<link href="./plugin/toastr/toastr.css?v=2.7.5" type="text/css" rel="stylesheet" />
+<link href="./plugin/nprogress/nprogress.css?v=2.7.5" type="text/css" rel="stylesheet" />
+
+<link href="./css/common.css?v=2.7.5" type="text/css" rel="stylesheet" />
+<link href="./css/contact.css?v=2.7.5" type="text/css" rel="stylesheet" />
+
+<style>
+.toast-error{background-color:rgba(189, 54, 47,0.95);}
+
+.webuploader-container {width:100%;height:100%;position:absolute;top:0;left:0;opacity:0;}
+.webuploader-element-invisible {position: absolute !important;clip: rect(1px 1px 1px 1px);clip: rect(1px,1px,1px,1px);}
+.webuploader-pick {opacity:0;width:100%;height:100%;}
+.webuploader-pick-hover {opacity:0;}
+.webuploader-pick-disable {opacity:0;pointer-events:none;}
+</style>
+
+</head>
+
+<body>
+	<!--通讯录-->
+	<div id="contactbox" class="contact">
+		<div id="regionSearch" class="container-fluid top">
+			<span>按地区筛选：</span>
+			<select id="provinceSelect" class="form-control input-sm">
+				<option value="">请选择</option>
+			</select>
+			<select id="citySelect" class="form-control input-sm">
+				<option value="">请选择</option>
+			</select>
+			<select id="areaSelect" class="form-control input-sm" style="display:none;">
+				<option value="">请选择</option>
+			</select>
+			<select id="schoolSelect" class="form-control input-sm">
+				<option value="">请选择</option>
+			</select>
+		</div>
+		<div class="main">
+			<div class="mainleft">
+				<div class="typebar">
+					<span class="graduate_label">通讯录类型</span>
+					<select id="graduateSelect" class="graduate_select form-control input-sm">
+						<option value="1">校内师生</option>
+						<option value="2">毕业生</option>
+						<option value="3" selected>校外通讯录</option>
+					</select>
+				</div>
+				<div class="bar">通讯录</div>
+				<div class="mainleft_scroll">
+					<div id="leftTree" class="tree">
+						<!--
+						<div class="tree_node">
+							<div class="tree_nav tree_folder">
+								<span class="tree_fold fold"></span><span class="tree_label">全通小学</span><span class="tree_more">&nbsp;</span>
+								<ul class="tree_pop">
+									<li data-action="addsub" data-nodeid="">添加子部门</li>
+									<li data-action="rename">重命名</li>
+									<li data-action="delete">删除</li>
+								</ul>
+							</div>
+							<ul class="tree_list">
+								<li>
+									<div class="tree_node">
+										<div class="tree_nav tree_folder">
+											<span class="tree_fold fold"></span><span class="tree_label">全通小学</span><span class="tree_more">&nbsp;</span>
+											<ul class="tree_pop">
+												<li>添加子部门</li>
+												<li>重命名</li>
+												<li>删除</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="tree_node">
+										<div class="tree_nav tree_folder">
+											<span class="tree_fold fold"></span><span class="tree_label">全通小学</span><span class="tree_more">&nbsp;</span>
+											<ul class="tree_pop">
+												<li>添加子部门</li>
+												<li>重命名</li>
+												<li>删除</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						-->
+					</div>
+				</div>
+			</div>
+			<div class="mainright">
+				<div class="bar">
+					<div class="bar_btns">
+						<a id="rsyncBtn" class="btn btn_blue btn_sync" href="javascript:;"><span>&nbsp;</span>同步通讯录</a>
+						<a id="batchDelBtn" class="btn btn_grey" href="javascript:;">批量删除</a>
+					</div>
+					<!--暂时不在显示选择-->
+					<span class="bar_title" id="tbTotalTop" data-label="全部成员" style="cursor:pointer;display:none;">全部成员(0)<span class="tree_fold unfold"></span></span>
+					<div class="bar_search">
+						<div class="input-group">
+							<input id="searchContent" type="text" class="form-control" placeholder="姓名、手机号搜索..." />
+							<span id="searchContentBtn" class="input-group-addon"></span>
+						</div>
+					</div>
+				</div>
+				<div class="mainright_scroll">
+					<table id="mainTable" class="table table-striped">
+						<thead id="tbHead">
+							<tr>
+								<td><input type="checkbox"/></td>
+								<td>姓名</td>
+								<td>身份</td>
+								<td>手机</td>
+								<td>状态</td>
+							</tr>
+						</thead>
+						<tbody id="tbBody">
+							<!--
+							<tr>
+								<td><input type="checkbox"/></td>
+								<td>麦xx</td>
+								<td>家长</td>
+								<td>13800138000</td>
+								<td>13800138000</td>
+								<td>已关注</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"/></td>
+								<td>麦xx</td>
+								<td>家长</td>
+								<td>13800138000</td>
+								<td>13800138000</td>
+								<td>已关注</td>
+							</tr>
+							-->
+						</tbody>
+						<tfoot id="tbFoot" style="display:none;">
+							<tr>
+								<td colspan="6" class="table_pager">
+									<div class="pager_wrapper">
+										<ul id="tbPager" class="pagination pagination-sm">
+											<li class="disabled"><a href="javascript:;"><span class="glyphicon glyphicon-triangle-left"></span>上一页</a></li>
+											<li class="active"><a href="javascript:;">1</a></li>
+											<li><a href="javascript:;">2</a></li>
+											<li><a href="javascript:;">3</a></li>
+											<li><a href="javascript:;">4</a></li>
+											<li><a href="javascript:;">5</a></li>
+											<li><a href="javascript:;">下一页<span class="glyphicon glyphicon-triangle-right"></span></a></li>
+										</ul><div class="pager_tools">
+											第<input id="tbPageJump" class="form-control" type="text"/>页 
+											每页
+											<select id="tbSizeSelect" class="form-control">
+												<option value="10">10</option>
+												<option value="20">20</option>
+												<option value="30">30</option>
+												<option value="50">50</option>
+											</select>/共<span id="tbTotal">82</span>条
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+				<!-- 学生家长详细信息 -->
+				<div id="detailBox" class="popbox rightbox" >
+					<div class="popbox_title">详细信息<button type="button" class="close"><span>&times;</span></button></div>
+					<div class="popbox_con">
+						<form class="form-horizontal">
+							<div class="popbox_nav">
+								<span class="up">学生1</span>
+								<span>学生2</span>
+							</div>
+							<div class="popbox_nav_con">
+								<div class="form-group form-group-sm">
+									<label class="control-label col-md-3"><em>*</em>所属班级</label>
+									<div class="col-md-9">
+										<p class="form-control-static">
+											高一（1）班
+										</p>
+									</div>
+								</div>
+								<div class="form-group form-group-sm">
+									<label class="control-label col-md-3"><em>*</em>学生姓名</label>
+									<div class="col-md-9">
+										<p class="form-control-static">
+											xxxxxx
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group form-group-sm">
+								<label class="control-label col-md-3"><em>*</em>姓名</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										xxxxxx
+									</p>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="nodata">
+			暂无数据
+		</div>
+	</div>
+
+	<!--批量导入界面-->
+	<div id="batchbox" class="batchbox importbox" style="display:none;">
+		<div class="bar">
+			<div class="bar_btns">
+				<a id="batAddBtn" class="btn btn_blue" href="javascript:;"><span class="glyphicon glyphicon-plus"></span>新增上传</a>
+				<a id="batRefreshBtn" class="btn btn_green" href="javascript:;"><span class="glyphicon glyphicon-refresh"></span>刷新状态</a>
+			</div>
+			<span id="batTitle" class="bar_title">批量导入</span>
+			<div class="bar_search">
+				<a id="batBackBtn" class="btn btn_org" href="javascript:;">返回</a>
+			</div>
+		</div>
+		<div class="batchbox_wrap">
+			<table id="importTable" class="table table-striped">
+				<thead>
+					<tr>
+						<td>上传时间</td>
+						<td>导入类型</td>
+						<td>文件名</td>
+						<td>状态</td>
+						<td>原始文件</td>
+						<td>结果文件</td>
+						<td>对比文件</td>
+					</tr>
+				</thead>
+				<tbody id="batBody">
+					<!--
+					<tr>
+						<td>2015-12-01 12:33:00</td>
+						<td>麦xx</td>
+						<td>家长</td>
+						<td><a href="javascript:;">下载</a></td>
+						<td><a href="javascript:;">下载</a></td>
+						<td><a href="javascript:;">下载</a></td>
+					</tr>
+					<tr>
+						<td>2015-12-01 12:33:00</td>
+						<td>麦xx</td>
+						<td>家长</td>
+						<td><a href="javascript:;">下载</a></td>
+						<td><a href="javascript:;">下载</a></td>
+						<td><a href="javascript:;">下载</a></td>
+					</tr>
+					-->
+					<tr><td colspan="7" style="text-align:center;">暂无数据</td></tr>
+				</tbody>
+				<tfoot id="batFoot" style="display:none;"></tfoot>
+			</table>
+		</div>
+	</div>
+
+
+
+	<!--批量调班界面--> 
+	<div id="batmovebox" class="batchbox batmovebox" style="display:none;">
+		<div class="bar">
+			<div class="bar_btns">
+				<a id="batmoveAddBtn" class="btn btn_blue" href="javascript:;"><span class="glyphicon glyphicon-plus"></span>新增调班</a>
+				<a id="batmoveRefreshBtn" class="btn btn_green" href="javascript:;"><span class="glyphicon glyphicon-refresh"></span>刷新状态</a>
+			</div>
+			<span id="batmoveTitle" class="bar_title">批量调班</span>
+			<div class="bar_search">
+				<a id="batmoveBackBtn" class="btn btn_org" href="javascript:;">返回</a>
+			</div>
+		</div>
+		<div class="batchbox_wrap">
+			<table id="batmoveTable" class="table table-striped">
+				<thead>
+					<tr>
+						<td>上传时间</td>
+						<td>上传人</td>
+						<td>上传文件</td>
+						<td>处理状态</td>
+						<td>原始文件</td>
+						<td>结果文件</td>
+					</tr>
+				</thead>
+				<tbody>
+					<!--
+					<tr>
+						<td>2015-12-01 12:33:00</td>
+						<td>麦xx</td>
+						<td>家长</td>
+						<td><a href="javascript:;">下载</a></td>
+						<td><a href="javascript:;">下载</a></td>
+						<td><a href="javascript:;">下载</a></td>
+					</tr>
+					<tr>
+						<td>2015-12-01 12:33:00</td>
+						<td>麦xx</td>
+						<td>家长</td>
+						<td><a href="javascript:;">下载</a></td>
+						<td><a href="javascript:;">下载</a></td>
+						<td><a href="javascript:;">下载</a></td>
+					</tr>
+					-->
+					<tr><td colspan="6" style="text-align:center;">暂无数据</td></tr>
+				</tbody>
+				<tfoot style="display:none;"></tfoot>
+			</table>
+		</div>
+	</div>
+
+	<!--批量导出界面--> 
+	<div id="exportbox" class="batchbox exportbox" style="display:none;">
+		<div class="bar">
+			<div class="bar_btns">
+				<a id="exportDoBtn" class="btn btn_blue" href="javascript:;"><span class="glyphicon glyphicon-save"></span>导出通讯录</a>
+				<a id="exportRefreshBtn" class="btn btn_green" href="javascript:;"><span class="glyphicon glyphicon-refresh"></span>刷新状态</a>
+			</div>
+			<span id="exportTitle" class="bar_title">邀请关注</span>
+			<div class="bar_search">
+				<a id="exportBackBtn" class="btn btn_org" href="javascript:;">返回</a>
+			</div>
+		</div>
+		<div class="batchbox_wrap">
+			<table id="exportTable" class="table table-striped">
+				<thead>
+					<tr>
+						<td>导出时间</td>
+						<td>操作人员</td>
+						<td>处理状态</td>
+						<td>结果文件</td>
+					</tr>
+				</thead>
+				<tbody id="exportBody">
+					<!--
+					<tr>
+						<td>2015-12-01 12:33:00</td>
+						<td>200</td>
+						<td>完成</td>
+						<td><a href="javascript:;">下载</a></td>
+					</tr>
+					<tr>
+						<td>2015-12-01 12:33:00</td>
+						<td>200</td>
+						<td>完成</td>
+						<td><a href="javascript:;">下载</a></td>
+					</tr>
+					-->
+					<tr><td colspan="4" style="text-align:center;">暂无数据</td></tr>
+				</tbody>
+				<tfoot id="exportFoot" style="display:none;"></tfoot>
+			</table>
+		</div>
+	</div>
+
+	<!--批量邀请界面--> 
+	<div id="invitebox" class="batchbox invitebox" style="display:none;">
+		<div class="bar">
+			<div class="bar_btns">
+				<a id="inviteAddBtn" class="btn btn_blue" href="javascript:;"><span class="glyphicon glyphicon-envelope"></span>全校邀请</a>
+				<a id="inviteRefreshBtn" class="btn btn_green" href="javascript:;"><span class="glyphicon glyphicon-refresh"></span>刷新状态</a>
+			</div>
+			<span id="inviteTitle" class="bar_title">全校邀请</span>
+			<div class="bar_search">
+				<a id="inviteBackBtn" class="btn btn_org" href="javascript:;">返回</a>
+			</div>
+		</div>
+		<div id="inviteboxTips" class="invitebox_tips"><!--<input id="inviteboxTipsCheck" type="checkbox"/> -->已经发送<span id="inviteboxTipsTime">1</span>次</div>
+		<div class="invitebox_wrap">
+			<table id="inviteTable" class="table table-striped">
+				<thead>
+					<tr>
+						<td>发送时间</td>
+						<td>记录发起人</td>
+						<td>发起来源</td>
+						<td>发送数量</td>
+						<td>是否发短信</td>
+						<td >状态</td>
+						<td>发送时关注率</td>
+						<td>发送对象</td>
+					</tr>
+				</thead>
+				<tbody id="inviteBody">
+					<!--
+					<tr>
+						<td>2015-12-01 12:33:00</td>
+						<td>200</td>
+						<td>完成</td>
+						<td><a href="javascript:;">下载</a></td>
+					</tr>
+					<tr>
+						<td>2015-12-01 12:33:00</td>
+						<td>200</td>
+						<td>完成</td>
+						<td><a href="javascript:;">下载</a></td>
+					</tr>
+					-->
+					<tr><td colspan="6" style="text-align:center;">暂无数据</td></tr>
+				</tbody>
+				<tfoot id="inviteFoot" style="display:none;"></tfoot>
+			</table>
+		</div>
+	</div>
+
+	<!--验证申请加入界面--> 
+	<div id="verifybox" class="batchbox verifybox" style="display:none;">
+		<div class="bar">
+			<div class="bar_btns">
+				<a id="verifyPassBtn" class="btn btn_green" href="javascript:;" data-flag="1"><span class="glyphicon glyphicon-ok"></span>批量通过</a>
+				<a id="verifyNotPassBtn" class="btn btn_blue" href="javascript:;" data-flag="2"><span class="glyphicon glyphicon-remove"></span>批量不通过</a>
+			</div>
+			<span id="verifyTitle" class="bar_title">申请加入</span>
+			<div class="bar_search">
+				<a id="verifyBackBtn" class="btn btn_org" href="javascript:;">返回</a>
+			</div>
+		</div>
+		<div class="batchbox_wrap">
+			<table id="verifyTable" class="table table-striped">
+				<thead>
+					<tr>
+						<td><input id="verifyTableAll" type="checkbox"/></td>
+						<td>姓名</td>
+						<td>手机</td>
+						<td>申请时间</td>
+						<td>状态/操作</td>
+						<td>处理人</td>
+						<td>处理时间</td>
+					</tr>
+				</thead>
+				<tbody id="verifyBody">
+					<!--
+					<tr>
+						<td><input type="checkbox" data-id="xxa"/></td>
+						<td>麦小杰</td>
+						<td>13800138000</td>
+						<td>2016-04-13 15:08:00</td>
+						<td data-id="xxa">
+							<a class="btn btn_green" href="javascript:;">&nbsp;通过&nbsp;</a>
+							<a class="btn btn_blue" href="javascript:;">不通过</a>
+						</td>
+						<td>管理员</td>
+						<td>2016-04-13 15:08:00</td>
+					</tr>
+					-->
+				</tbody>
+				<tfoot id="verifyFoot" style="display:none;"></tfoot>
+			</table>
+		</div>
+	</div>
+
+
+
+
+
+
+
+	<!--消息弹出层--> 
+	<div id="msgBox" class="msgbox">
+		<div class="msgbox_bg">
+			<div class="msgbox_head"><b id="msgBox_title">添加教材版本</b></div>
+			<div class="msgbox_body">
+			   <p><img id="msgBox_ico" src="images/ico_warn.png"/><span id="msgBox_msg">发送失败，请重新发送</span></p>
+			</div>
+			<div class="msgbox_bt">
+				<a class="btn btn_blue" href="javascript:;">确定</a>&nbsp;<a class="btn btn_grey" href="javascript:;">关闭</a>&nbsp;&nbsp;
+			</div>
+		</div>
+	</div>
+
+	<!-- 添加子部门or修改名称 -->
+	<div id="nameBox" class="popbox" style="display:none;">
+		<div class="popbox_title">修改名称</div>
+		<div class="popbox_con">
+			<form>
+				<div class="form-group">
+					<label class="control-label namebox-node-title"><em>*</em>新名称</label>
+					<input id="namebox_name" type="text" class="form-control" placeholder="请输入新名称" maxlength="10"/>
+				</div>
+				<div id="namebox_aliasname_div" class="form-group" style="display:none;">
+					<label class="control-label">班级别名</label>
+					<input id="namebox_aliasname" type="text" class="form-control" placeholder="请输入班级别名" maxlength="10"/>
+				</div>
+				<div class="form-group">
+					<label class="control-label">说明：</label>
+					<ul class="numlist">
+						<li><span>1.</span>可添加学校的常规班级，命名规范如下： 幼儿园：小班(1)班、小学：小一(1)班、初中：初一(1)班、高中：高一(1)班。</li>
+						<li><span>2.</span>非常规班级暂不允许录入，如兴趣班。</li>
+						<li><span>3.</span>管理员仅能录入学校管理员的信息，其他教师请录入到教师分组。</li>
+						<li><span>4.</span>默认名称不能修改，使用班级别名后，对外将显示为班级别名的名称。</li>
+						<li><span>5.</span>导入数据时，可使用班级别名进行导入。</li>
+					</ul>
+				</div>
+			</form>
+		</div>
+		<div class="popbox_btns">
+			<a class="btn btn_blue" href="javascript:;">保存</a>
+			<a class="btn btn_grey" href="javascript:;">取消</a>
+		</div>
+	</div>
+	<!-- 重命名 -->
+	<div id="renameBox" class="popbox" style="display:none;">
+		<div class="popbox_title">分组名称</div>
+		<div class="popbox_con">
+			<form>
+				<div class="form-group">
+					<!--<label class="control-label"><input type="radio" id="rdoClassName" name="renametype" value="1" checked="checked" /></label>-->
+					<label class="control-label renamebox-node-title" for="rdoClassName"><em>*</em>分组名称</label>
+					<input id="renamebox_name" type="text" class="form-control" placeholder="请输入节点名称" />
+				</div>
+				<div class="form-group edit-alias" style="display:none;">
+					<!--<label class="control-label"><input type="radio" id="rdoAliasName" name="renametype" value="2"/></label> -->
+					<label class="control-label" for="rdoAliasName">班级别名</label>
+					<input id="renamebox_aliasname" type="text" class="form-control" placeholder="请输入班级别名" maxlength="10"/>
+				</div>
+				<div class="form-group">
+					<label class="control-label">说明：</label>
+					<ul class="numlist">
+						<li><span>1.</span>可添加学校的常规班级，命名规范如下： 幼儿园：小班(1)班、小学：小一(1)班、初中：初一(1)班、高中：高一(1)班。</li>
+						<li><span>2.</span>非常规班级暂不允许录入，如兴趣班。</li>
+						<li><span>3.</span>管理员仅能录入学校管理员的信息，其他教师请录入到教师分组。</li>
+						<li><span>4.</span>默认名称不能修改，使用班级别名后，对外将显示为班级别名的名称。</li>
+						<li><span>5.</span>导入数据时，可使用班级别名进行导入。</li>
+					</ul>
+				</div>
+			</form>
+		</div>
+		<div class="popbox_btns">
+			<a class="btn btn_blue" href="javascript:;">保存</a>
+			<a class="btn btn_grey" href="javascript:;">取消</a>
+		</div>
+	</div>
+
+
+	<!-- 添加老师 -->
+	<div id="teacherBox" class="popbox teacherBox" style="display:none;">
+		<div class="popbox_title">新增老师</div>
+		<div class="popbox_con">
+			<form class="form-horizontal">
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>姓名</label>
+					<div class="col-md-10">
+						<input id="teacherBox_name" type="text" class="form-control">
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">所属部门</label>
+					<div class="col-md-10">
+						<div class="form-control depselect border">
+							<!--
+							<span class="clsspan"><span class="clsspan_icon"></span>xxx班<span class="clsspan_del glyphicon glyphicon-remove"></span></span>
+							-->
+							<span id="teacherBox_add_dept" class="handlespan addspan"><span class="glyphicon glyphicon-plus"></span>点击添加</span>
+							<span id="teacherBox_close_dept" class="handlespan minusspan"><span class="glyphicon glyphicon-check"></span>确认选择</span>
+						</div>
+						<div id="teacherBox_tree_dept" class="tree"></div>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">所带班级</label>
+					<div class="col-md-10">
+						<div class="form-control depselect border mainselect">
+							<!--
+							<span class="clsspan"><span class="clsspan_icon"></span>xxx班<span class="clsspan_del glyphicon glyphicon-remove"></span></span>
+							-->
+							<span id="teacherBox_add_clss" class="handlespan addspan"><span class="glyphicon glyphicon-plus"></span>点击添加</span>
+							<span id="teacherBox_close_clss" class="handlespan minusspan"><span class="glyphicon glyphicon-check"></span>确认选择</span>
+							<span id="teacherBox_remove_clss" class="handlespan removespan"><span class="glyphicon glyphicon-remove"></span>清空选择</span>
+						</div>
+						<div id="teacherBox_tree_clss" class="tree"></div>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>是否管理员</label>
+					<div class="col-md-10">
+						<select id="teacherBox_admin" class="form-control">
+							<!--<option value="">请选择</option>-->
+							<option value="4">否</option>
+							<option value="2">是</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group form-group-sm point-admin" style="display:none;">
+					<label class="control-label col-md-2"><em>*</em>积分特定管理员</label>
+					<div class="col-md-10">
+						<select id="teacherBox_pointadmin" class="form-control">
+							<!--<option value="">请选择</option>-->
+							<option value="0">否</option>
+							<option value="1">是</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group form-group-sm point-admin-tips" style="display:none;">
+					<label class="control-label col-md-2">&nbsp;</label>
+					<div class="col-md-10">
+						<p style="font-size:12px;">【注意】积分特定管理员与积分活动有关，每所学校只能设置一名积分特定管理员。如需更改，必须先把现积分特定管理员的身份撤销（设为“否”）。任何更换的动作都将导致积分任务产生变动，请在更换前先核对清楚积分情况，再做修改。否则造成的损失由操作者承担。</p>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">班主任带班</label>
+					<div class="col-md-10">
+						<select id="teacherBox_main_cls" class="form-control">
+							<option value="">请选择班级</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>手机</label>
+					<div class="col-md-10">
+						<input id="teacherBox_mobile" type="text" class="form-control" placeholder="请输入手机" maxlength="11">
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">邮箱</label>
+					<div class="col-md-10">
+						<input id="teacherBox_email" type="email" class="form-control" placeholder="请输入邮箱">
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">微信号</label>
+					<div class="col-md-10">
+						<input id="teacherBox_weixin" type="text" class="form-control" placeholder="请输入微信号">
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="popbox_btns">
+			<a class="btn btn_blue" href="javascript:;">保存</a>
+			<a class="btn btn_grey" href="javascript:;">取消</a>
+		</div>
+	</div>
+
+	<!-- 添加家长 -->
+	<div id="parentBox" class="popbox" style="display:none;">
+		<div class="popbox_title">新增家长</div>
+		<div class="popbox_con">
+			<form class="form-horizontal">
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>所属班级</label>
+					<div class="col-md-10">
+						<div class="form-control depselect border">
+							<!--
+							<span class="clsspan"><span class="clsspan_icon"></span>xxx班<span class="clsspan_del glyphicon glyphicon-remove"></span></span>
+							-->
+							<span id="parentBox_add_clss" class="handlespan addspan"><span class="glyphicon glyphicon-plus"></span>点击添加</span>
+							<span id="parentBox_close_clss" class="handlespan minusspan"><span class="glyphicon glyphicon-check"></span>确认选择</span>
+						</div>
+						<div id="parentBox_tree_clss" class="tree"></div>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>学生姓名</label>
+					<div class="col-md-10">
+						<input id="parentBox_stuname" type="text" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">学生学号</label>
+					<div class="col-md-10">
+						<input id="parentBox_stuno" type="text" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">手机</label>
+					<div class="col-md-10">
+						<input id="parentBox_stuphone" type="text" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">邮箱</label>
+					<div class="col-md-10">
+						<input id="parentBox_stuemail" type="text" class="form-control"/>
+					</div>
+				</div>
+				<hr/>
+				<div id="parentBox_multi" class="form-group form-group-sm" style="display:none;">
+					<label class="control-label col-md-2">家长列表</label>
+					<div class="col-md-10">
+						<div class="form-control depselect border" style="border:none;box-shadow:none;">
+							<!--
+							<span class="clsspan"><span class="clsspan_icon"></span>xxx班<span class="clsspan_del glyphicon glyphicon-remove"></span></span>
+							-->
+						</div>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>家长姓名</label>
+					<div class="col-md-10">
+						<input id="parentBox_parname" type="text" class="form-control">
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2" style="padding-left:0;"><em>*</em>亲属关系</label>
+					<div class="col-md-10">
+						<select id="parentBox_relation" class="form-control">
+							<!--
+							<option value="">请选择</option>
+							<option value="51">父亲</option>
+							<option value="52">母亲</option>
+							<option value="61">爷爷</option>
+							<option value="62">奶奶</option>
+							<option value="63">外公</option>
+							<option value="64">外婆</option>
+							<option value="71">哥哥</option>
+							<option value="75">姐姐</option>
+							<option value="">其他监护人</option>
+							-->
+						</select>
+						<select id="parentBox_relation2" class="form-control" style="display:none;">
+						</select>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>手机</label>
+					<div class="col-md-10">
+						<input id="parentBox_parphone" type="text" class="form-control" placeholder="请输入手机" maxlength="11"/>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">邮箱</label>
+					<div class="col-md-10">
+						<input id="parentBox_paremail" type="text" class="form-control" placeholder="请输入邮箱"/>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">微信号</label>
+					<div class="col-md-10">
+						<input id="parentBox_parweixin" type="text" class="form-control" placeholder="请输入微信号"/>
+					</div>
+				</div>
+
+				<div class="form-group form-group-sm">
+					<label id="parentBox_addparent" class="control-label col-md-2" style="font-size:12px;color:#337ab7;cursor:pointer;"><span class="glyphicon glyphicon-plus"></span>增加家长</label>
+				</div>
+				
+			</form>
+		</div>
+		<div class="popbox_btns">
+			<a class="btn btn_blue" href="javascript:;">保存</a>
+			<a class="btn btn_grey" href="javascript:;">取消</a>
+		</div>
+	</div>
+
+	<!-- 修改家长 -->
+	<div id="editParBox" class="popbox" style="display:none;">
+		<div class="popbox_title">修改家长</div>
+		<div class="popbox_con">
+			<form class="form-horizontal">
+				<div class="popbox_nav">
+					<span class="up">学生1</span>
+					<span>学生2</span>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>所属班级</label>
+					<div class="col-md-10">
+						<div class="form-control depselect border">
+							<span id="editParBox_add_clss" class="handlespan addspan"><span class="glyphicon glyphicon-plus"></span>点击添加</span>
+							<span id="editParBox_close_clss" class="handlespan minusspan"><span class="glyphicon glyphicon-check"></span>确认选择</span>
+						</div>
+						<div id="editParBox_tree_clss" class="tree"></div>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>学生姓名</label>
+					<div class="col-md-10">
+						<input id="editParBox_stuname" type="text" class="form-control"/>
+						<input id="editParBox_uid" type="hidden"/>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">学生学号</label>
+					<div class="col-md-10">
+						<input id="editParBox_stuno" type="text" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">手机</label>
+					<div class="col-md-10">
+						<input id="editParBox_stuphone" type="text" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">邮箱</label>
+					<div class="col-md-10">
+						<input id="editParBox_stuemail" type="text" class="form-control"/>
+					</div>
+				</div>
+				<hr/>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>家长姓名</label>
+					<div class="col-md-10">
+						<input id="editParBox_parname" type="text" class="form-control">
+					</div>
+				</div>
+				<!--
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2" style="padding-left:0;"><em>*</em>亲属关系</label>
+					<div class="col-md-10">
+						<select id="editParBox_relation" class="form-control">
+							<option value="">请选择</option>
+							<option value="51">父亲</option>
+							<option value="52">母亲</option>
+							<option value="61">爷爷</option>
+							<option value="62">奶奶</option>
+							<option value="63">外公</option>
+							<option value="64">外婆</option>
+							<option value="71">哥哥</option>
+							<option value="75">姐姐</option>
+							<option value="">其他监护人</option>
+
+						</select>
+					</div>
+				</div>
+				-->
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>手机</label>
+					<div class="col-md-10">
+						<input id="editParBox_parphone" type="text" class="form-control" placeholder="请输入手机" maxlength="11"/>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">邮箱</label>
+					<div class="col-md-10">
+						<input id="editParBox_paremail" type="text" class="form-control" placeholder="请输入邮箱"/>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">微信号</label>
+					<div class="col-md-10">
+						<input id="editParBox_parweixin" type="text" class="form-control" placeholder="请输入微信号"/>
+					</div>
+				</div>
+				
+			</form>
+		</div>
+		<div class="popbox_btns">
+			<a class="btn btn_blue" href="javascript:;">保存</a>
+			<a class="btn btn_grey" href="javascript:;">取消</a>
+		</div>
+	</div>
+
+	<!-- 选择身份 -->
+	<div id="roleBox" class="popbox" style="display:none;">
+		<div class="popbox_title">身份角色</div>
+		<div class="popbox_con">
+			<form class="form-horizontal">
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2" style="padding-left:0;"><em>*</em>选择身份</label>
+					<div class="col-md-10">
+						<select id="roleBox_type" class="form-control">
+							<option value="">请选择</option>
+							<option value="2">教师</option>
+							<option value="1">家长</option>
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="popbox_btns">
+			<a class="btn btn_blue" href="javascript:;">确定</a>
+			<a class="btn btn_grey" href="javascript:;">取消</a>
+		</div>
+	</div>
+
+
+
+
+
+
+
+	<!-- 导入浮层 -->
+	<div id="importPop" class="popbox importpop" style="display:none;">
+		<div class="popbox_title">批量导入</div>
+		<div class="popbox_con">
+			<form class="form-horizontal">
+
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2" style="padding-left:0;"><em>*</em>所属学校</label>
+					<div class="col-md-10">
+						<p id="importPop_schoolName" class="form-control-static importup">xxxxxx</p>
+					</div>
+				</div>
+				
+				
+				
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2" style="padding-left:0;"><em>*</em>导入类型</label>
+					<div class="col-md-10">
+						<select id="importPop_type" class="form-control">
+							<option value="">请选择</option>
+							<option value="teachers">教师</option>
+							<option value="parents">家长</option>
+						</select>
+					</div>
+				</div>
+				<div id="importPop_select" class="form-group form-group-sm">
+					<label class="control-label col-md-2" style="padding-left:0;"><em>*</em>上传文件</label>
+					<div class="col-md-10">
+						<div class="uploadfile">
+							<a href="javascript:;" class="btn btn_green">选择文件</a>
+							<div id="uploadPicBtn" class="uploadButton webuploader-container">&nbsp;</div>
+						</div>
+						<a id="demoLink" href="javascript:;" target="_blank" class="demolink">样例模板下载</a>
+					</div>
+				</div>
+				<div id="importPop_selected" class="form-group form-group-sm" style="display:none;">
+					<label class="control-label col-md-2" style="padding-left:0;"><em>*</em>上传文件</label>
+					<div class="col-md-10">
+						<span id="importfile" class="importfile">xxxxxx.xls</span><span class="glyphicon glyphicon-remove importremove"></span>
+					</div>
+				</div>
+				<div id="importPop_progress" class="form-group form-group-sm" style="display:none;">
+					<label class="control-label col-md-2" style="padding-left:0;">上传进度</label>
+					<div class="col-md-10">
+						<div class="progress">
+							<div id="importPop_progressbar" class="progress-bar progress-bar-info" style="width:60%;">
+								60%
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2" style="padding-left:0;">规则说明</label>
+					<div class="col-md-10">
+						<ul class="numlist">
+							<li><span>1.</span>可添加学校的常规班级，命名规范如下：</li>
+							<li><span>&nbsp;</span><em>幼儿园</em>：托班(1)班、小班(1)班、中班(1)班、大班(1)班、大大班(1)班。</li>
+							<li><span>&nbsp;</span><em>小学</em>：小一(1)班、小二(1)班、小三(1)班。</li>
+							<li><span>&nbsp;</span><em>初中</em>：初一(1)班、初二(1)班、初三(1)班。</li>
+							<li><span>&nbsp;</span><em>高中</em>：高一(1)班、高二(1)班、高三(1)班。</li>
+							<li><span>2.</span>导入文件中的涉及的学生班级命名规则必须符合以上，否则导入处理时不能处理。</li>
+						</ul>
+						
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="popbox_btns">
+			<a class="btn btn_blue" href="javascript:;">保存</a>
+			<a class="btn btn_grey" href="javascript:;">取消</a>
+		</div>
+	</div>
+
+	<!-- 邀请浮层 -->
+	<div id="invitePop" class="popbox invitepop" style="display:none;">
+		<div id="invitepop_title" class="popbox_title">全校邀请</div>
+		<div class="popbox_con sure_con" style="display:none;">
+			<ul class="numlist">
+				<li><span>1.</span>全校邀请会对全校未关注人员发起邀请。</li>
+				<li><span>2.</span>全校短信邀请只可以使用<em>一次</em>。</li>
+				<li><span>3.</span>由于腾讯企业号关闭主动邀请功能，只能发送短信，发送时间09：00-20：00</li>
+			</ul>
+
+			<div class="invitepop_line"></div>
+			<div id="invitepop_template_list"></div>
+		</div>
+		<div class="popbox_con confirm_con" style="display:none;">
+			<div>必须确认企业号后台已开启可通过搜索找到企业号！</div>
+			<div>开启方法：企业号后台&gt;设置&gt;功能设置&gt;企业号搜索</div>
+			<div><img src="./images/qy_search.png" width="100%" /></div>
+		</div>
+		<div class="popbox_con other_con" style="display:none;"></div>
+		<div class="popbox_btns">
+			<a class="btn btn_blue" href="javascript:;">确定邀请</a>
+			<a class="btn btn_grey" href="javascript:;">取消</a>
+		</div>
+	</div>
+	
+	<!-- 邀请浮层 -->
+	<div id="noticePop" class="popbox popnotice" style="display:none;">
+		<div class="popbox_title">重要提示</div>
+		<div class="popbox_con">
+			<p>各客户经理：</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;大家好，2016年5月份腾讯关闭了微信主动邀请的功能，我司执行了短信邀请替代批量邀请的补救措施，但通过短信邀请的关注转化率很低（5%以下），而且多次发送短信会造成用户骚扰、厌烦，故对“全校邀请”功能做以下功能调整及说明：<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;1.此通知生效日起，之前有发起过全校邀请的学校将不能再使用全校邀请功能，未发起过全校邀请的学校<em>有且只有一次</em>全校邀请的机会；<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;2.暑假期间（7、8月份，具体精确时间未定）将<em>关闭</em>全校邀请功能；<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;3.各客户经理在发送全校邀请前应先知会学校教师和家长，充分把握唯一一次的邀请机会，提高关注率；<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;4.日后此功能做变更将另外进行通知说明。</p>
+			<p style="float:right">2016年6月17日起</p><div style="clear:both"></div>
+		</div>
+		<div class="popbox_btns">
+			<a class="btn btn_blue" href="javascript:;">我知道了</a>
+		</div>
+	</div>
+
+	<!-- 调班浮层 -->
+	<div id="moveClassBox" class="popbox importbox importpop" style="display:none;">
+		<div class="popbox_title">批量调班</div>
+		<div class="popbox_con">
+			<form class="form-horizontal">
+
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2" style="padding-left:0;"><em>*</em>所属学校</label>
+					<div class="col-md-10">
+						<p id="moveClassBox_schoolName" class="form-control-static importup">xxxxxx</p>
+					</div>
+				</div>
+				<div id="moveClassBox_select" class="form-group form-group-sm">
+					<label class="control-label col-md-2" style="padding-left:0;"><em>*</em>上传文件</label>
+					<div class="col-md-10">
+						<div class="uploadfile">
+							<a href="javascript:;" class="btn btn_green">选择文件</a>
+							<div id="moveClassBox_uploadBtn" class="uploadButton webuploader-container">&nbsp;</div>
+						</div>
+						<a id="moveClassBox_demoLink" href="./assets/excel/classchangedemo.xlsx" download="classchangedemo.xlsx" target="_blank" class="demolink">样例模板下载</a>
+					</div>
+				</div>
+				<div id="moveClassBox_selected" class="form-group form-group-sm" style="display:none;">
+					<label class="control-label col-md-2" style="padding-left:0;"><em>*</em>上传文件</label>
+					<div class="col-md-10">
+						<span id="moveClassBox_importfile" class="importfile">xxxxxx.xls</span><span class="glyphicon glyphicon-remove importremove"></span>
+					</div>
+				</div>
+				<div id="moveClassBox_progress" class="form-group form-group-sm" style="display:none;">
+					<label class="control-label col-md-2" style="padding-left:0;">上传进度</label>
+					<div class="col-md-10">
+						<div class="progress">
+							<div id="moveClassBox_progressbar" class="progress-bar progress-bar-info" style="width:0%;">
+								0%
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2" style="padding-left:0;">规则说明</label>
+					<div class="col-md-10">
+						<ul class="numlist">
+							<li><span>1.</span>原有班级指现在学生所在的班级</li>
+							<li><span>2.</span>新班级指学生需要调到的班级</li>
+						</ul>
+						
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="popbox_btns">
+			<a class="btn btn_blue" href="javascript:;">保存</a>
+			<a class="btn btn_grey" href="javascript:;">取消</a>
+		</div>
+	</div>
+
+	<!-- loading -->
+	<div id="loading" class="loading" style="display:none;">
+		<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+	</div>
+
+	<!--
+	<div id="parentBox" class="popbox" style="display:none;">
+		<div class="popbox_title">新增学生</div>
+		<div class="popbox_con">
+			<form class="form-horizontal">
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>所属班级</label>
+					<div class="col-md-10">
+						<div class="form-control depselect border">
+							<span class="clsspan"><span class="clsspan_icon"></span>xxx班<span class="clsspan_del glyphicon glyphicon-remove"></span></span>
+							<span class="clsspan"><span class="clsspan_icon"></span>xxx班<span class="clsspan_del glyphicon glyphicon-remove"></span></span>
+							<span class="clsspan"><span class="clsspan_icon"></span>xxx班<span class="clsspan_del glyphicon glyphicon-remove"></span></span>
+							<span class="addspan"><span class="glyphicon glyphicon-plus"></span>点击添加</span>
+						</div>
+						<div class="tree">
+							<div class="tree_node">
+								<div class="tree_nav tree_folder">
+									<span class="tree_fold fold"></span><span class="tree_label">全通小学</span><span class="tree_more">&nbsp;</span>
+								</div>
+								<ul class="tree_list">
+									<li>
+										<div class="tree_node">
+											<div class="tree_nav tree_folder">
+												<span class="tree_fold fold"></span><span class="tree_label">全通小学</span><span class="tree_more">&nbsp;</span>
+											</div>
+											<ul class="tree_list">
+												<li>
+												</li>
+											</ul>
+										</div>
+									</li>
+									<li>
+										<div class="tree_node">
+											<div class="tree_nav tree_folder">
+												<span class="tree_fold fold"></span><span class="tree_label">全通小学</span><span class="tree_more">&nbsp;</span>
+											</div>
+											<ul class="tree_list">
+												<li>
+												</li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>学生姓名</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>学生学号</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">手机</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">邮箱</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<hr/>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">家长姓名</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2" style="padding-left:0;"><em>*</em>亲属关系</label>
+					<div class="col-md-10">
+						<select class="form-control">
+							<option>请选择</option>
+							<option>父亲</option>
+							<option>母亲</option>
+							<option>祖父母</option>
+							<option>外祖父母</option>
+							<option>其他</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2"><em>*</em>手机</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" placeholder="请输入手机">
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">邮箱</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" placeholder="请输入邮箱">
+					</div>
+				</div>
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2">微信号</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" placeholder="请输入微信号">
+					</div>
+				</div>
+
+				<div class="form-group form-group-sm">
+					<label class="control-label col-md-2" style="font-size:12px;color:#337ab7;cursor:pointer;"><span class="glyphicon glyphicon-plus"></span>增加家长</label>
+				</div>
+				
+			</form>
+		</div>
+		<div class="popbox_btns">
+			<a class="btn btn_blue" href="javascript:;">保存</a>
+			<a class="btn btn_grey" href="javascript:;">取消</a>
+		</div>
+	</div>
+	-->
+
+
+<script src="./cmd/seajs/sea.js"></script>
+<script>	
+	seajs.config({
+		preload:[
+			'./cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+		],
+		project_version : '2.7.5'
+	});
+	seajs.use("./js/contact_outschool.js");
+</script>
+
+</body>
+</html>

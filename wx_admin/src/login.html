@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>    
+<meta http-equiv="Expires" content="0"/>
+<meta name="renderer" content="webkit">
+<title>登录-管理平台</title>
+<link href="./plugin/bootstrap/css/bootstrap.css?v=2.7.5" type="text/css" rel="stylesheet" />
+<link href="./plugin/toastr/toastr.css?v=2.7.5" type="text/css" rel="stylesheet" />
+<link href="./plugin/nprogress/nprogress.css?v=2.7.5" type="text/css" rel="stylesheet" />
+<link href="./css/common.css?v=2.7.5" type="text/css" rel="stylesheet" />
+<link href="./css/login.css?v=2.7.5" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+<!--[if lte IE 10]>
+<div id="warning" style="positin:absolute;top:0;left:0;background:#FFFFCC;z-index:1000;height:30px;line-height:30px;text-align:center;font-size:14px;width:100%;">您正在使用低版本的IE浏览器，在本页面的显示效果可能有异常。建议您升级到 <a href="http://www.microsoft.com/china/windows/internet-explorer/" target="_blank">Internet Explorer 10</a> 以上或： <a href="http://chrome.360.cn/">360极速浏览器</a> / <a href="http://www.google.com/chrome/?hl=zh-CN">Chrome</a> / <a href="http://www.mozillaonline.com/">Firefox</a>
+<img src="images/ico_closed.png" style="vertical-align:middle;margin-left:30px;cursor:pointer;" onclick="close_browser_tips();"/>
+</div>
+<script type="text/javascript">
+function browser_tips(el, eltop, elleft){  
+	// check if this is IE6  
+	if(!window.XMLHttpRequest){
+		window.onscroll = function(){  
+			el.style.top = (document.documentElement.scrollTop + eltop)+"px";  
+			el.style.left = (document.documentElement.scrollLeft + elleft)+"px";  
+		}
+	}else {
+		el.style.position = "fixed";
+	}
+}
+function close_browser_tips(){
+	document.getElementById("warning").style.display = 'none';
+}
+browser_tips(document.getElementById("warning"),0, 0);
+</script>
+<![endif]-->
+
+<div class="banner">
+    <div class="shadebox">
+		<div class="container top clearfix" style="display:none;">
+			<div class="pull-left"><strong>微校</strong> | 智慧教育新体验</div>
+			<div class="pull-right">第一次使用？<a href="javascript:;">立即注册</a></div>
+		</div>
+		<div class="loginbox clearfix">
+			<div class="loginTitle">
+				<h2 style="visibility:hidden;">
+					<img src="images/logo.png" />
+				</h2>
+				<h4>管理平台</h4>
+			</div>
+			<div class="loginInput">
+				<div class="loginInputTitle">登 录</div>
+				<form>
+					<div class="input-group ip">
+						<span class="input-group-addon glyphicon glyphicon-user"></span>
+						<input id="username" type="text" class="form-control" placeholder="手机号" >
+					</div>
+					<div class="input-group ip2">
+						<span class="input-group-addon glyphicon glyphicon-lock"></span>
+						<input id="pwd" type="password" class="form-control" placeholder="密码">
+					</div>
+					<div class="checkbox">
+						<label>
+							<input id="remenberName" type="checkbox"/>记住用户名
+						</label>
+						<a href="javascript:;" class="pull-right">忘记密码</a>
+					</div>
+					<button id="loginBtn" type="button" class="loginbtn">
+					   登 录
+					</button>
+				</form>
+			</div>
+		</div>
+		<a name="ourGoods"></a>
+		<div class="slide">
+			<a href="#ourGoods" class="slidebtn"><span class="glyphicon glyphicon-menu-down"></span></a>
+		</div>
+    </div>
+</div>
+<div class="ourGoods">
+    <h3 class="text-center posREl">我们的产品
+        <div class="circlebox"><span class="ciricle"></span></div>
+    </h3>
+    <div class="container">
+        <ul class="row ">
+            <li class="col-md-4 pd">
+                <span class="goods g1"></span>
+                <h4>微官网</h4>
+                <p>
+                    让学校一键建立移动官网，提升学校的公众形象，功能包括：学校介绍、学校新闻、学校活动。
+                    <a href="http://www.weixiao100.cn" target="_blank">more...</a>
+                </p>
+            </li>
+            <li class="col-md-4 pd">
+                <span class="goods g2"></span>
+                <h4>学校消息</h4>
+                <p>
+                    基于微信的消息互动，消息内容更丰富，家长阅读信息的情况随时掌握，功能包括：通知、作业、留言。
+                    <a href="http://www.weixiao100.cn" target="_blank">more...</a>
+                </p>
+            </li>
+            <li class="col-md-4 pd">
+                <span class="goods g3"></span>
+                <h4>校付通</h4>
+                <p>
+                    面向校园的便利支付服务平台，解决学校管理常见的代收代支管理难题，为学校、师生...
+                    <a href="http://www.weixiao100.cn" target="_blank">more...</a>
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="./cmd/seajs/sea.js"></script>
+<script>	
+	seajs.config({
+		preload:[
+			'./cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+		],
+		project_version : '2.7.5'
+	});
+	seajs.use("./js/login.js");
+</script>
+
+</body>
+</html>
+
+
+

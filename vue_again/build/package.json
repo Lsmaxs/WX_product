@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "name": "wx01",
+  "main": "index.html",
+  "user-agent":"nodewebkit",
+  "domain":"www.weixiao100.cn",
+  "window": {
+    "width": 700,
+    "height": 800,
+    "frame": false,
+    "show_in_taskbar": true
+  },
+  "devDependencies": {
+    "nw-builder": "^3.1.0"
+  },
+   "webkit": {
+    "plugin": true
+  }
+}

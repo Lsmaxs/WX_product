@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>桌面云</title>
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/desktopCloud.css" />
+        <link rel="stylesheet" href="css/lrtk.css" type="text/css" media="screen" />
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/lrtk.js"></script>
+        <script src="js/desktopCloud.js"></script>
+    </head>
+
+    <body style='overflow:scroll;overflow-y:hidden;overflow-x:hidden'>
+        <img class="desktopCloud-bg" src="images/desktopCloud-bg.png" />
+        <div class="desktopCloud-content">
+            <!-- 校园广播 -->
+            <div class="desktopCloudBar-hd">
+              <div id="header">
+                <div class="wrap">
+                 <div id="slide-holder">
+              		<div id="slide-runner">
+              			<img id="slide-img-1" src="images/a1.jpg" class="slide" alt="" />
+              			<img id="slide-img-2" src="images/a2.jpg" class="slide" alt="" />
+              			<img id="slide-img-3" src="images/a3.jpg" class="slide" alt="" />
+              			<div id="slide-controls">
+              			 <p id="slide-client" class="text"><strong></strong><span></span></p>
+              			 <p id="slide-desc" class="text"></p>
+              			 <p id="slide-nav"></p>
+              			</div>
+                     <div id="broadcast-icon"/>
+              		</div>
+                 </div>
+                </div>
+               </div>
+            </div>
+            </div>
+            <!-- 课程邮件 -->
+            <div class="desktopCloudBar-bd clearfix"  onclick="newEmail()">
+
+                <div class="desktopCloudBar-l fl">
+                    <div class="desktopCloudBar-l-title">
+                        您下一节需要上的课程为
+                    </div>
+                    <div class="desktopCloudBar-l-icon">
+                        英语
+                    </div>
+                    <div class="desktopCloudBar-l-content">
+                        一年级1班 第6节
+                    </div>
+                </div>
+                <div class="desktopCloudBar-r fl" onclick="clickIt()">
+
+                   <div class="desktopCloudBar-r-title" id="newEmail">
+                        <!-- <sup  style="color:red" id="sup">●</sup>
+                        您有<b style="color:red">1</b>封未读的邮件 --><br/>
+                    </div>
+                    <div class="desktopCloudBar-r-icon">
+                    </div>
+                    <div class="desktopCloudBar-r-content">
+                        来自校长的邮件
+                    </div>
+                </div>
+            </div>
+            <!-- 课程列表 -->
+            <!--
+            radio
+            The address book
+            schedule
+            results
+            process
+            The schedule of
+            attendance
+            More and more
+            -->
+            <div class="desktopCloudBar-fd clearfix">
+
+                    <a id="home" class="desktopCloudBar-icon desktopCloudBar-icon-radio" href="javascript:;" title="广播" /><span>微官网</span></a>
+                    <a id="notice" class="desktopCloudBar-icon desktopCloudBar-icon-scheduleof" href="javascript:;" title="日程" /><span>广播</span></a>
+                    <a id="classcircle" class="desktopCloudBar-icon desktopCloudBar-icon-schedule" href="javascript:;" title="课表" /><span>班级圈</span></a>
+                    <a id="mail" class="desktopCloudBar-icon desktopCloudBar-icon-results" href="javascript:;" title="成绩" /><span>邮件</span></a>
+                    <a id="subject" class="desktopCloudBar-icon desktopCloudBar-icon-monitoring" href="javascript:;" title="监控" /><span>微课</span></a>
+                    <a id="schedule" class="desktopCloudBar-icon desktopCloudBar-icon-process" href="javascript:;" title="流程" /><span>日程</span></a>
+                    <a id="timeTable" class="desktopCloudBar-icon desktopCloudBar-icon-more" href="javascript:;" title="班级圈" /><span>流程</span></a>
+                    <a id="checkIn" class="desktopCloudBar-icon desktopCloudBar-icon-attendance" href="javascript:;" title="考勤" /><span>考勤</span></a>
+                    <a id="watch" class="desktopCloudBar-icon desktopCloudBar-icon-samllwebsite" href="javascript:;" title="微官网" /><span>监控</span></a>
+                    <a id="manage" class="desktopCloudBar-icon desktopCloudBar-icon-emall" href="javascript:;" title="邮件" /><span>管理</span></a>
+            </div>
+        </div>
+        <!-- 桌面云底部 -->
+        <!--
+        <div class="desktopCloud-bottom">
+
+        </div>
+        -->
+    </body>
+</html>

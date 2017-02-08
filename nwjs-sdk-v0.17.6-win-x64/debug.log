@@ -1,0 +1,5 @@
+[1008/194908:WARNING:in_range_cast.h(38)] value 504409755419149312 out of range
+[1008/194908:WARNING:in_range_cast.h(38)] value 4251461820868474880 out of range
+[1008/194908:WARNING:in_range_cast.h(38)] value 7998513886317800448 out of range
+[1019/150830:ERROR:file_io.cc(30)] read: expected 36, observed 0
+[1019/151441:ERROR:registration_protocol_win.cc(53)] CreateFile: 系统找不到指定的文件。 (0x2)

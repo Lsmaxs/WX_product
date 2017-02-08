@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "name": "wx01",
+  "main": "index.html",
+  "window": {
+    "width": 700,
+    "height": 800,
+    "frame": false,
+    "transparent": false,
+    "show_in_taskbar": true,
+    "icon": "images/22.png"
+  },
+  "devDependencies": {
+    "nw-builder": "^3.1.0"
+  },
+   "webkit": {
+    "plugin": true
+  }
+}

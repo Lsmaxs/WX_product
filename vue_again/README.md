@@ -1,6 +1,6 @@
-# cnodejs-vue
+# vue配置
 
-> cnodejs vue版，使用vuejs + vue-cli + vue-router + vuex进行开发
+>vue构建，使用vuejs + vue-cli + vue-router + vuex进行开发
 
 ## Build Setup
 
@@ -15,7 +15,6 @@ npm run dev
 npm run build
 
 ```
-## demo
-[cnodejs-vue](http://demo.bitibiti.com/cnodejs-vue/)
+
 
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans    classpath:/org/springframework/beans/factory/xml/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/rabbit classpath:/org/springframework/amqp/rabbit/config/spring-rabbit-1.0.xsd">
+		
+   <!-- 连接服务配置 队列 -->
+   <rabbit:connection-factory id="connectionFactory" host="${mq.image.host}" username="${mq.image.user}"
+        password="${mq.image.psw}" port="${mq.image.port}" channel-cache-size="5" virtual-host="${mq.image.virtual.host}"  />
+         
+   <rabbit:admin id="amqpAdmin" connection-factory="connectionFactory"/>
+    
+          
+   <bean id="wordsMessageConverter"  class="com.qtone.wxq.web.teacher.core.mq.FastJsonWordsMessageConverter"></bean>
+   
+   <rabbit:template id="amqpWordsTemplate" exchange="${mq.words.exchange}"  
+        connection-factory="connectionFactory"  message-converter="wordsMessageConverter"/> 
+ 	     
+		
+</beans>

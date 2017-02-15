@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="../../css/common.css?v=${wx_version}"/>
+<link rel="stylesheet" type="text/css" href="../../css/notice.css?v=${wx_version}"/>
+<link rel="stylesheet" type="text/css" href="../../css/weui.min.css?v=${wx_version}"/>
+<title>选择通知对象</title>
+<style>
+.send_list ul li a{display:block;}
+</style>
+</head>
+<body style="background:#fff">
+<div class="date-wrap" id="optCommon" >
+	<div id="targetBox" class="list_con" style="display: none">
+		<div class="input_box" style=" background:#f1f1f1;">
+			<p>选择接收对象 <a href="javascript:;" class="operate-btn"><span id="allSelectBtn" class="op-check"></span>全选</a> </p>
+		</div>
+		<div class="search1" >
+      		<input type="text" placeholder="查询" name="username"/>
+    	</div>
+		<div id="studentBox" class="send_list tz-list">
+		</div>
+		<div id="teacherBox" class="send_list tz-list">
+		</div>
+		<div class="b_ts">没找到您带的班级？请到“通讯录-我”修改个人资料</div>
+		<a id="selectTargetFinishBtn" href="javascript:;" class="bt_green">下一步</a>
+	</div>
+</div>
+<div class="date-wrap" id="optSearch" style="display: none">
+    <div class="search whitebg">
+      <a class="de_src" href="javascript:;">&nbsp;</a>
+      <input type="text" id="search_content" placeholder="查询" name="username"/>
+      <span><a id="cancelSearch" href="javascript:;">取消</a></span>
+    </div>
+    <div class="search_list" id="search_student">
+    
+  	</div>
+  	<div class="search_list" id="search_teacher">
+    
+  	</div>
+</div>
+<script src="../../js/cmd/seajs/sea.js" ></script>
+<script>
+seajs.config({
+	preload:[
+		'../../js/cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+	],
+	project_version : '${wx_version}'
+});
+seajs.use("../../js/notice/tea_send_tagetlist${wx_min}.js");
+</script>
+</body>
+</html>

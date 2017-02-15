@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+
+/***** 学校设置 *****/
+.school_set{ padding:10px 20px; font-size:14px;}
+.school_set .set_li{ padding:20px; border-bottom:1px solid #e4e4e4; font-size:12px; color:#888}
+.school_set .set_li p{ font-size:18px; line-height:17px; color:#000; padding-bottom:6px;}
+.school_set .set_li b{ padding-left:20px; font-weight: normal}
+.school_set .set_li .ipt_ck{ width:17px; height:17px; display:inline-block; background:url(../images/ico_check1.png?v=1.9.1) no-repeat; vertical-align:top;cursor:pointer;}
+.school_set .set_li .ipt_cked{ width:17px; height:17px; display:inline-block; background:url(../images/ico_check1.png?v=1.9.1) bottom no-repeat}

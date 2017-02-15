@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>    
+<meta http-equiv="Expires" content="0"/>
+<meta name="renderer" content="webkit">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="../../css/common.css?v=${wx_version}"/>
+<link rel="stylesheet" type="text/css" href="../../css/notice.css?v=${wx_version}"/>
+<link rel="stylesheet" type="text/css" href="../../css/weui.min.css?v=${wx_version}"/>
+<title>通知</title>
+<script>
+function WW(){return document.documentElement.clientWidth*100/320;}
+function _SETHTML(){document.getElementsByTagName('html')[0].style.fontSize=WW()+'px';}
+window.onload=_SETHTML;
+window.onresize=_SETHTML;
+_SETHTML();
+</script>
+</head>
+<body style="background:#ebebeb; padding-bottom:45px;">
+<div id="htmlbody">
+</div>
+<input type="hidden" id="nu" name="nu" value="" />
+<input type="hidden" id="userId" name="userId" value="" />
+<input type="hidden" id="cropId" name="cropId" value="" />
+<input type="hidden" id="classCode" name="classCode" value="" />
+<input type="hidden" id="senderUuid" name="senderUuid" value="" />
+<input type="hidden" id="senderName" name="senderName" value="" />
+<script src="../../js/cmd/seajs/sea.js" ></script>
+<script>
+seajs.config({
+	preload:[
+		'../../js/cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+	],
+	project_version : '${wx_version}'
+});
+seajs.use("../../js/notice/notice_par_detail${wx_min}.js");
+</script>
+</body>
+</html>

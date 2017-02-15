@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>    
+<meta http-equiv="Expires" content="0"/>
+<meta name="renderer" content="webkit">
+<title>我的设置</title>
+<link href="css/common.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="css/my.css?v=1.9.1" type="text/css" rel="stylesheet" />
+</head>
+
+<body style="background:#f7f7f7;">
+
+<div class="viewport">
+	<div class="overview_set">
+		<!--
+		<p><a id="setPswBtn" href="javascript:;"><img src="images/ico_passw.png?v=1.9.1" />设置密码</a></p>
+		<p><a id="setClassBtn" href="javascript:;"><img src="images/ico_class.png?v=1.9.1" />设置班级</a></p>
+		<p><a id="setSubjectBtn" href="javascript:;"><img src="images/ico_Subject.png?v=1.9.1" />设置科目</a></p>
+		-->
+		<p><a id="messagelistBtn" href="javascript:;"><img src="images/msg.png?v=1.9.1" />留言列表</a></p>
+		<p><a id="classPhotoBtn" href="javascript:;"><img src="images/xc.png?v=1.9.1" />班级相册</a></p>
+		<p><a id="questionlistBtn" href="javascript:;"><img src="images/wj.png?v=1.9.1" />问卷调查</a></p>
+		<p><a id="leavelistBtn" href="javascript:;"><img src="images/ico_leave.gif?v=1.9.1" />请假列表</a></p>
+		<p><a id="noticelistBtn" href="javascript:;"><img src="images/ico_notice.gif?v=1.9.1" />通知列表</a></p>
+		<!--<p><a id="wgwBtn" href="javascript:;"><img src="images/wgw.png?v=1.9.1" />微官网</a></p>-->
+	</div>
+</div>
+
+<script src="./cmd/seajs/sea.js"></script>
+<script>	
+	seajs.config({
+		preload:[
+			'./cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+		],
+		project_version : '1.9.1'
+	});
+	seajs.use("./js/my.js");
+</script>
+
+</body>
+</html>

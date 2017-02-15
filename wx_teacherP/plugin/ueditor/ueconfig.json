@@ -1,0 +1,7 @@
+{
+    "imageUrl": "",
+    "imagePath": "",
+    "imageFieldName": "upfile",
+    "imageMaxSize": 2048,
+    "imageAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"]
+}

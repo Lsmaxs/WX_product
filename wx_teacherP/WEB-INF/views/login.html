@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<link href="$!ctx/css/login.css" type="text/css" rel="stylesheet" />
+<script src="$!ctx/js/cmd/encrypt/sha1.js"></script>
+<script src="$!ctx/js/cmd/encrypt/md5.js"></script>
+<script src="$!ctx/js/cmd/encrypt/jquery.js"></script>
+<script type="text/javascript" src="$!ctx/js/cmd/encrypt/jquery.cookie.js"></script>
+<script src="http://wpa.b.qq.com/cgi/wpa.php"></script> 
+<link rel="shortcut icon" href="$!ctx/favicon.ico" />
+<title>移动校园门户</title>
+</head>
+<body>
+<!--[if lte IE 9]>
+<div id="warning" style="positin:absolute;top:0;left:0;background:#FFFFCC;z-index:1000;height:30px;line-height:30px;text-align:center;font-size:14px;width:100%;">您正在使用低版本的IE浏览器，在本页面的显示效果可能有异常。建议您升级到 <a href="http://www.microsoft.com/china/windows/internet-explorer/" target="_blank">Internet Explorer 9</a> 以上或： <a href="http://chrome.360.cn/">360极速浏览器</a> / <a href="http://www.google.com/chrome/?hl=zh-CN">Chrome</a> / <a href="http://www.mozillaonline.com/">Firefox</a>
+<img src="$!ctx/images/ico_closed.png" style="vertical-align:middle;margin-left:30px;cursor:pointer;" onclick="close_browser_tips();"/>
+</div>
+<script type="text/javascript">
+function browser_tips(el, eltop, elleft){  
+	// check if this is IE6  
+	if(!window.XMLHttpRequest){
+		window.onscroll = function(){  
+			el.style.top = (document.documentElement.scrollTop + eltop)+"px";  
+			el.style.left = (document.documentElement.scrollLeft + elleft)+"px";  
+		}
+	}else {
+		el.style.position = "fixed";
+	}
+}
+function close_browser_tips(){
+	document.getElementById("warning").style.display = 'none';
+}
+browser_tips(document.getElementById("warning"),0, 0);
+</script>
+<![endif]-->
+<!--在线客服-->
+<div id="kefuBox" class="float_winR" style="display:;">
+	<a id="wxkefu" href="javascript:;" class="line_b">
+		<img class="aboutUs" src="$!ctx/images/ico_weixin1.png" /><br/>关注我们
+		<div class="pop_code1" style="display:none;">
+			<div class="jt"></div>
+			<p>微信扫一扫关注<br/>
+			<b>微信公众号：weixymh</b></p>
+			<img src="$!ctx/images/weixin_code.png"/>
+		</div>
+    </a>
+    <a id="qqkefu" href="javascript:;"><img src="$!ctx/images/ico_qq1.png" /><br/>在线客服</a>
+</div>
+<div class="logo_warp">
+	<img src="$!ctx/images/logo.jpg"/>&nbsp;&nbsp;<a href="javascript:;" ><img style="width:160px" src="https://res.wx.qq.com/mmocbiz/zh_CN/tmt/home/dist/img/school/school-blue-opacity_29fd3a17.png" alt="企业号登录"/></a>
+	<span><a href="javascript:;" onclick="SetHome()" ><img src="$!ctx/images/ico_ye.jpg" />设为首页</a><a href="javascript:;" onclick="AddFavorite()" ><img src="$!ctx/images/ico_sc.jpg" />加入收藏</a></span>
+</div>
+
+<div class="top_warp">
+	<div class="top_box">
+    	<div class="top_l_adv"></div>
+        <div class="top_r_log">
+	        <div class="login">
+				<h3>登录移动校园门户</h3>
+				<input id="username" name="username" type="text" class="login_user" value="账号/手机号码" onblur="detectionValue(this,'账号/手机号码',2)"  onfocus="detectionValue(this,'账号/手机号码',1)" />
+				<input id="password" name="password" type="password" class="login_pass" value="" onblur="detectionPassword(2)"  style="display: none" />
+				<input id="password_text" name="password_text" type="text" class="login_pass" value="密码" onfocus="detectionPassword(1)" style="display: " />
+				<div class="login_mm">
+				 	<span><input id="rememberMe" name="remeberMe" type="checkbox" value="" onclick="memberMe(this)" />记住用户名</span>
+				 	<span style="text-align:right"><a href="$!ctx/forget">忘记登录密码?</a></span>
+				</div>
+				<a class="b_login" href="javascript:void();" onclick="onLoginSubmit();return false">登录</a>
+			</div>
+        
+        </div>
+    </div>
+</div>
+<div class="t_warp">
+    <div class="t_warp_m">
+	<h2>提供全面、专业的校园微信化服务</h2>
+    <p>移动校园门户是以微信为入口，为学校搭建起集多种学校服务于一体的移动校园服务入口，学校通过使用移动校园门户向家长提供服务，家长关注学校移动校园门户后即可享受学校所提供的所有服务内容。</p>
+    </div>
+</div>
+<div class="fun_warp">
+	<div class="case_box"><img src="$!ctx/images/case.jpg" /></div>
+</div>
+<div class="foot_warp">移动校园门户版权所有  <a href="http://www.miitbeian.gov.cn/ ">陕ICP备14010330号-4</a></div>
+<input type="hidden" id="client_id" name="client_id" value="$!client_id" />
+<input type="hidden" id="client_secret" name="client_secret" value="$!client_secret" />
+<input type="hidden" id="grant_type" name="grant_type" value="$!grant_type" />
+<input type="hidden" id="scope" name="scope" value="$!scope" />
+<input type="hidden" id="redirect_uri" name="redirect_uri" value="$!redirect_uri" />
+<script type="text/javascript">
+$(document).ready(function(){
+	var loginName = $.cookie('rememberMe');
+	if(loginName && loginName != 'null'){
+		$("#username").val(loginName);
+		$("#rememberMe").attr("checked", true);
+	}
+	//回车事件
+	$('.login input').bind('keypress',function(event){
+        if(event.keyCode == "13")    
+        {
+        	onLoginSubmit();
+        }
+    });
+	
+	BizQQWPA && BizQQWPA.addCustom({
+		nameAccount : '800105253',
+		selector : 'qqkefu',
+		aty :1,
+		a : 1001
+	});
+	
+	BizQQWPA && BizQQWPA.visitor({
+		nameAccount : '800105253'
+	});
+	
+	$(".aboutUs").mouseover(function(){
+		$(".pop_code1").show();
+	});
+	
+	$(".aboutUs").mouseout(function(){
+		$(".pop_code1").hide();
+	});
+	
+});
+function memberMe(obj){
+	var _obj = $(obj);
+	if(_obj.is(':checked')){  //被选中
+		
+	}else{
+		$.cookie('rememberMe', null); 
+	}
+}
+function onLoginSubmit(){
+	
+	var userName = $("#username").val();
+	var password = $("#password").val();
+	
+	if(userName.trim() == ''){
+		alert('请输入账号');
+		return;
+	}
+	if(password.trim() == ''){
+		alert('请输入密码');
+		return;
+	}
+	
+	//var hashObj = new jsSHA(password, "TEXT");
+	//var encryptPwd = hashObj.getHash("SHA-1", "HEX");
+	
+	var encryptPwd=hex_md5(password).toLowerCase();
+	var client_id = $("#client_id").val();
+	var client_secret = $("#client_secret").val();
+	var grant_type = $("#grant_type").val();
+	var scope = $("#scope").val();
+	//if(console&&console.log){
+	//	console.log(encryptPwd);
+	//}
+	var url = "$!loginUrl/v2/oauth/token?client_id="+client_id+
+	    "&client_secret="+client_secret+"&grant_type="+grant_type+
+	    "&scope="+scope+"&username="+userName+
+	    "&password="+encryptPwd;
+	$(".b_login").html('登录中...');
+	
+	$.ajax({
+	        url:url,
+	        dataType : "json",
+	        success : function(res){
+	        	  //if(console&&console.log){
+	        	  	//console.log("返回成功", res);
+	        	  //}
+	        	  if(res && res.bizData && res.bizData.value){
+	        		  if($("#rememberMe").is(':checked')){  //被选中
+	        			  $.cookie('rememberMe', userName, { expires: 7 }); 
+	        		  }
+	        		  var redirectUri = $("#redirect_uri").val();
+		              var script = document.createElement("script");
+		              script.src = "$!checkTokenUrl?access_token="+res.bizData.value;
+		              $("body").append(script);
+		              setTimeout(function(){
+		                 window.location = redirectUri;
+		              },2000);
+	        	  }else{
+	        		  alert("登录失败");
+	        		  $(".b_login").html('登录');
+	        	  }
+	        },
+	        error : function(res){
+	        	//if(console&&console.log){
+	        	//	console.log("返回失败", res);
+	        	//}
+	            res = JSON.parse(res.responseText);
+	            alert('密码错误');
+	            $(".b_login").html('登录');
+	        }
+	});
+}
+function detectionValue(obj,exampleValue,type){
+	
+	if(type == 1){  //onfocus
+		if($(obj).val() == exampleValue){
+			$(obj).val('');
+		}
+	}else{  //onblur
+		if($(obj).val().trim() == ''){
+			$(obj).val(exampleValue);
+		}
+	}
+	
+}
+function detectionPassword(type){
+	
+	var $pwd = $("#password");
+	var $pwdText = $("#password_text");
+	if(type == 1){  //onfocus
+		$pwd.val('');
+		$pwdText.hide();
+		$pwd.show();
+		$pwd.focus();
+	}else{  //onblur
+		if($pwd.val().trim() == ''){
+			$pwd.hide();
+			$pwdText.show();
+		}
+	}
+	
+}
+/**
+ * 加入收藏夹
+ */
+function AddFavorite()
+{
+	 var ctrl = (navigator.userAgent.toLowerCase()).indexOf('mac') != -1 ? 'Command/Cmd': 'CTRL'; 
+     if (document.all) { 
+         window.external.addFavorite('http://www.myhost-domain.cn/', '移动校园门户');
+         alert('添加成功');
+     } else if (window.sidebar) { 
+         window.sidebar.addPanel('移动校园门户', 'http://www.myhost-domain.cn/', ""); 
+         alert('添加成功');
+     } else { 
+         alert('您可以尝试通过快捷键' + ctrl + ' + D 加入到收藏夹'); 
+     }	
+     return false; 
+}
+/**
+ * 设为首页
+ */
+function SetHome(){
+	var url = 'http://www.myhost-domain.cn/'; 
+    try { 
+        this.style.behavior = "url(#default#homepage)"; 
+        this.setHomePage(url);
+        alert('设置成功');
+    } catch (e) { 
+        if (document.all) { 
+    		document.body.style.behavior="url(#default#homepage)"; 
+    		document.body.setHomePage(url);	            
+        } else if (window.sidebar) { 
+			if (window.netscape) { 
+            	try { 
+                	netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+            	} catch (e) { 
+                	alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。"); 
+                	return false; 
+            	} 
+			} 
+            var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch); 
+            prefs.setCharPref('browser.startup.homepage',url);	
+        } else { 
+            alert('您的浏览器不支持自动设置首页, 使用浏览器菜单或在浏览器地址栏输入“chrome://settings/browser”手动设置!');
+        } 
+    } 
+    return false;	
+}
+</script>
+</body>
+</html>

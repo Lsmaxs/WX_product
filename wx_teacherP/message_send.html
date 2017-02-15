@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>    
+<meta http-equiv="Expires" content="0"/>
+<meta name="renderer" content="webkit">
+<title>发留言</title>
+<link href="css/common.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="css/notice.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="css/targetselect2.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="css/loading.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<style>
+.qt-slide{overflow:hidden;width:100%;}
+.qt-slide-wrap{overflow:visible; width:5000px;position:relative;}
+.qt-slide-wrap > div{float:left;width:50%;display:block;}
+
+.webuploader-container {width:100%;height:100%;position:absolute;top:0;left:0;opacity:0;}
+.webuploader-element-invisible {position: absolute !important;clip: rect(1px 1px 1px 1px);clip: rect(1px,1px,1px,1px);}
+.webuploader-pick {opacity:0;width:100%;height:100%;}
+.webuploader-pick-hover {opacity:0;}
+.webuploader-pick-disable {opacity:0;pointer-events:none;}
+
+
+.targetselect a.operate-btn{width:33%;}
+</style>
+</head>
+<body>
+
+<div id="qtslide" class="qt-slide">
+	<div class="qt-slide-wrap">
+		<!-- 主页面 -->
+		<div class="nicescrollContainer">
+			<div class="nicescrollWrapper">
+				<div class="noticesend">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="75" class="line_b">
+								发送对象：
+							</td>
+							<td class="line_b">
+								<input id="selectTargetBtn" class="input_text" type="text" value="请选择" autocomplete="off"/>
+							</td>
+						</tr>
+						<tr>
+							<td width="75" valign="top" class="line_b">
+								发送内容：
+							</td>
+							<td valign="top" class="line_b">
+								<textarea id="content" class="input_textarea" rows="5" autocomplete="off">请输入</textarea>
+							</td>
+						</tr>
+						<tr>
+							<td id="picList" colspan="2" valign="top" class="line_b">
+								<!--<a href="javascript:;" class="filegrid up_img"><span>删除</span><img src="images/img1.jpg?v=1.9.1" /></a>-->
+								<a href="javascript:;" class="filegrid">
+									<div style="position:relative;">
+										<img src="images/ico_add_pic.gif?v=1.9.1" title="添加图片" />
+										<div id="uploadPicBtn" class="uploadButton">&nbsp;</div>
+									</div>
+								</a>
+							</td>
+						</tr>
+						<!--
+						<tr>
+							<td colspan="2" valign="top" >
+								<div id="fileList" class="file_box">
+									
+									<a href="javascript:;" class="up_file"><span>删除</span>通知文件1.doc</a>
+									<a href="javascript:;" class="up_file"><span>删除</span>通知文件2.doc</a>
+									
+								</div>
+								<a href="javascript:;">
+									<div style="position:relative;float:left;">
+										<img src="images/ico_add_file.gif?v=1.9.1" title="添加文件" />
+										<div id="uploadFileBtn" class="uploadButton">&nbsp;</div>
+									</div>
+								</a>
+							</td>
+						</tr>
+						-->
+					</table>
+				</div>
+				<div class="r_footer"><a id="submitBtn" href="javascript:;" class="btn btn_blue">发布</a></div>
+			</div>
+		</div>
+
+		<!-- 二级子页面 -->
+		<div style="position:relative;">
+
+			<!--对象选择自定义滚动区-->
+			<div class="nicescrollContainer">
+				<div class="nicescrollWrapper">
+					<div id="targetBox" >
+						<!--对象选择-->
+						<div class="targetselect">
+							<!-- 学生、教师-->
+							<div id="studentBox">
+								<!-- 大类标题 -->
+								<a href="javascript:;" class="operate-all"><span class="op-check" style="display:none;"></span>学生<span class="jt_up"></span></a>
+								<!-- 分组列表 -->
+								<div class="classlist">
+									<!-- 每个分组包含一个a，div,用hr分隔 
+									<a href="javascript:;" class="operate-class"><span class="op-check"></span>小一（1）班<em>42人</em><span class="jt_up"></span></a>
+									<div class="fs_list">
+										<div class="gz_tit">
+											<p>已关注<em>34人</em></p>
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="黄熙俊"></span>黄熙俊(黄xx爸爸)</a>
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="杨晋涵"></span>杨晋涵</a>
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="炘琳"></span>炘琳</a>
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="朱明皓"></span>朱明皓</a>
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="闫子瑜"></span>闫子瑜</a>
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="晨朗"></span>晨朗</a> 
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="黄熙俊"></span>黄熙俊</a> 
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="杨晋涵"></span>杨晋涵</a> 
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="炘琳"></span>炘琳</a> 
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="朱明皓"></span>朱明皓</a> 
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="闫子瑜"></span>闫子瑜</a> 
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="晨朗"></span>晨朗</a>
+										</div>
+										<div class="wgz_tit">
+											<p>未关注<em>6人</em></p>
+											黄熙俊、杨晋涵、吴炘琳、黄熙俊、杨晋涵、吴炘琳 
+										</div>
+									</div>
+									-->
+								</div>
+							</div>
+							<!-- 学生、教师-->
+							<div id="teacherBox">
+								<!-- 大类标题 -->
+								<a href="javascript:;" class="operate-all"><span class="op-check" style="display:none;"></span>教师<span class="jt_up"></span></a>
+								<!-- 分组列表 -->
+								<div class="classlist"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--右侧确定-->
+			<div class="targetselect_footer_fixed" style="position:absolute;bottom:0;"><a id="selectTargetFinishBtn" href="javascript:;" class="btn btn_blue">选择</a></div>
+
+			<!--loading-->
+			<div id="loading">
+				<div class="loading" style="display:block;">
+					<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+				</div>
+			</div>
+		</div>
+
+		
+	</div><!--end of wrapper-->
+</div>
+
+
+<script src="./cmd/seajs/sea.js"></script>
+<script>	
+	seajs.config({
+		preload:[
+			'./cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+		],
+		project_version : '1.9.1'
+	});
+	seajs.use("./js/message_send.js");
+</script>
+</body>
+</html>

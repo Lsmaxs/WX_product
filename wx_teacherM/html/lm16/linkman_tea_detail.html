@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="../../css/common.css?v=${wx_version}"/>
+<link rel="stylesheet" type="text/css" href="../../css/contact16.css?v=${wx_version}"/>
+<link rel="stylesheet" type="text/css" href="../../css/weui.min.css?v=${wx_version}"/>
+<title></title>
+<script>
+function WW(){return document.documentElement.clientWidth*100/320;}
+function _SETHTML(){document.getElementsByTagName('html')[0].style.fontSize=WW()+'px';}
+window.onload=_SETHTML;
+window.onresize=_SETHTML;
+_SETHTML();
+</script>
+</head>
+
+<body>
+<div class="usertop">
+    <div class="usertop_head"></div>
+    <div class="usertop_headimg"><img id="userHeadImage" name="userHeadImage" src="../../images/user_pace.png" onerror="javascript:this.src='../../images/user_pace.png'" /></div>
+    <p class="usertop_name" id="teaName" name="teaName"></p>
+    <p class="usertop_gx" id="teaText" name="teaText"></p>
+    <div class="user_edit" style="display: none">编辑资料</div>
+</div>
+<div class="user_info">
+	<p>联系电话<br /><b id="phone" name="phone"></b></p>
+	<p>角色<br /><b id="roleNames" name="roleNames"></b></p>
+	<p>任教班级与科目<br /><b id="teachNames" name="teachNames"></b></p>
+	<p class="none_line">所属部门<br /><b id="deptNames" name="deptNames"></b></p>
+</div>
+<a style="margin:20px 15px 0; display: none" id="inviteAttention" href="javacript:;" class="bt_green"><i class="btn_inv"></i>邀请关注</a>
+<a style="margin:20px 15px 0; display: none" id="sendWords" href="javacript:;" class="bt_green"><i class="btn_mess"></i>留言</a>
+<a style="margin:10px 15px 0; " href="javascript:;" class="bt_green"><i class="btn_phone"></i>电话</a>
+<input id="cropId" name="cropId" type="hidden" value="" />
+<input id="userId" name="userId" type="hidden" value="" />
+<input id="type" name="type" type="hidden" value="" />
+<script src="../../js/cmd/seajs/sea.js" ></script>
+<script>
+seajs.config({
+	preload:[
+		'../../js/cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+	],
+	project_version : '${wx_version}'
+});
+seajs.use("../../js/lm16/linkman_tea_detail${wx_min}.js");
+</script>
+</body>
+</html>

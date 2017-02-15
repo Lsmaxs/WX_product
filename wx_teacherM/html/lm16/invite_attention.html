@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="renderer" content="webkit">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css?v=1.4.5"/>
+    <link rel="stylesheet" type="text/css" href="../../css/invite.css?v=1.4.5"/>
+    <link rel="stylesheet" type="text/css" href="../../css/weui.min.css?v=1.4.5"/>
+    <title>邀请关注</title>
+    <script>
+        function WW(){return document.documentElement.clientWidth*100/320;}
+        function _SETHTML(){document.getElementsByTagName('html')[0].style.fontSize=WW()+'px';}
+        window.onload=_SETHTML;
+        window.onresize=_SETHTML;
+        _SETHTML();
+    </script>
+</head>
+<body style=" background:#37b45d;">
+<div class="share_top">
+    <span><img src="../../images/share_jt.png" /></span>
+    请按箭头指示点右上角图标分享二维码
+</div>
+<div class=" share_code">
+    <span><img id="qrCode" src="../../images/no_photo.png" onerror="javascript:this.src=\'../../images/no_photo.png\'" /><br /><div id="schoolName"></div></span>
+    <p>请分享当前页面或让对方<br />扫描二维码加入学校</p>
+</div>
+<div class="share_b_bg"><img src="../../images/share_bg.png" /></div>
+<input type="hidden" id="schoolCode" name="schoolCode" value="" />
+<input type="hidden" id="schoolName" name="schoolName" value="" />
+<input type="hidden" id="cropId" name="cropId" value="" />
+<script src="../../js/cmd/seajs/sea.js" ></script>
+<script>
+    seajs.config({
+        preload:[
+            '../../js/cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+        ],
+        project_version : '1.4.5'
+    });
+    seajs.use("../../js/lm16/invite_attention.js");
+</script>
+</body>
+</html>

@@ -1,0 +1,753 @@
+@charset "utf-8";
+/* CSS Document */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+	-webkit-appearance: none !important;
+	margin: 0;
+}
+input[type="number"]{-moz-appearance:textfield;}
+
+/***** 通讯录 班级管理 *****/
+.clear { clear:both; }
+
+.quesclass {
+	padding: 20px;
+}
+
+.quesclass_msg {
+	color:red;
+	text-align:center;
+	display:none;
+}
+
+.quesclass .quesclass_main {
+	width: 500px;
+	margin: auto
+}
+
+.quesclass .quesclass_box {
+	margin: 0 0 15px 0;
+	position: relative
+}
+
+.quesclass_box_top {
+	padding: 0px 0px 20px 0px;
+}
+.quesclass_box_top_1 {
+	padding: 20px;
+} 
+
+.select_class_grade {
+	display: inline-block;
+	width: 90px;
+	height: 23px;
+	line-height: 23px;
+	vertical-align: middle;
+	background: #fff;
+}
+
+.quesclass_box em {
+	color: #666666;
+	font-size: 13px;
+}
+
+.quesclass_box .select_class_grade em {
+	color: #000000;
+}
+
+.quesclass_list {
+	margin-top: 10px;
+}
+
+.quesclass_list_grouping {
+	position: relative;
+	padding-bottom:10px;
+}
+
+.quesclass_list .bgcolor {
+	border: 1px solid #cfcfcb;
+	background: #fff;
+	overflow: scroll;
+	overflow-x: visible;
+	width: 310px;
+	display: inline-block;
+}
+
+.quesclass_list .quesclass_list_class {
+	height: 240px;
+	margin: 6px;
+	font-weight: normal;
+	width: 277px;
+}
+
+.quesclass_list .quesclass_header {
+	border: 1px solid #cfcfcb;
+	padding: 0 0 0 33px;
+	margin: 6px;
+	height: 40px;
+	background: #e0e0e0;
+	line-height: 40px;
+	font-size: 14px;
+	color: #5a5a5a;
+}
+
+.quesclass_list .quesclass_header em {
+	padding-left: 110px;
+	color: #000000;
+	font-size: 14px;
+	color: #5a5a5a;
+}
+
+.quesclass_list .quesclass_list_class p em {
+	position:absolute;
+	left:170px;
+	color: #000000;
+	font-size: 12px
+}
+
+.quesclass_list .quesclass_list_class p {
+	border: 1px solid #cfcfcb;
+	padding: 0 0 0 33px;
+	margin-bottom: 4px;
+	height: 36px;
+	background: #f7f7f7;
+	line-height: 36px;
+	font_size: 13px;
+	cursor: pointer;
+	position:relative
+}
+
+.quesclass_list .quesclass_list_class p.checked,
+.quesclass_list .quesclass_list_class p:hover {
+	border: 1px solid #00a8ee;
+	background: #c6e5f2;
+}
+
+.quesclass_list .quesclass_move {
+	display: inline-block;
+	position: absolute;
+	top: 30px
+}
+
+.quesclass_list .quesclass_master {
+	top: 150px
+}
+
+.quesclass_list .quesclass_move a {
+	color: #00a8ee;
+	margin: 20px;
+	display:block;
+}
+
+.quesclass_list .moveup {
+	background: url(../images/contact_group/quesclass_ico_moveup.png) no-repeat;
+	padding-left: 23px;
+	height: 21px;
+	line-height: 21px;
+}
+.quesclass_list a.moveup_no {
+	background: url(../images/contact_group/quesclass_ico_moveup_gray.png) no-repeat;
+	color:#666;
+}
+
+.quesclass_list .movedown {
+	background: url(../images/contact_group/quesclass_ico_movedown.png) no-repeat;
+	padding-left: 23px;
+	height: 21px;
+	line-height: 21px;
+}
+.quesclass_list a.movedown_no {
+	background: url(../images/contact_group/quesclass_ico_movedown_gray.png) no-repeat;
+	color:#666;
+}
+
+
+.quesclass_list .quesclass_setup ,.quesclass_list .quesclass_del,.quesclass_list .addclass_update{
+	border: 1px solid #00a8ee;
+	line-height: 100%;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 2px;
+	width: 81px
+}
+
+.quesclass_list .addclass_setup {
+	background: url(../images/contact_group/quesclass_ico_add1.png) no-repeat 7px center;
+	border: 1px solid #00a8ee;
+	text-align: center;
+	padding: 4px 7px 4px 24px;
+	color: #00a8ee;
+	border-radius: 2px;
+}
+
+
+.quesclass_box_top a.quesclass_add {
+	background: url(../images/contact_group/quesclass_ico_add1.png) no-repeat 7px center;
+	border: 1px solid #00a8ee;
+	text-align: center;
+	padding: 4px 7px 4px 24px;
+	color: #00a8ee;
+	position: absolute;
+	top: 40px;
+	left: 230px
+}
+
+.quesclass_list .quesclass_operation {
+	font-size: 13px;
+	color: #666666;
+	margin-top: 20px;
+}
+
+.quesclass_list .quesclass_operation a.quesclass_setup {
+	color: #00a8ee;
+	padding: 5px 14px 5px 32px;
+	font-weight: normal;
+}
+
+.quesclass_list .quesclass_operation a.quesclass_pic1 {
+	background: url(../images/contact_group/quesclass_ico_edit1.png) no-repeat 14px center;
+	margin-left: 10px;
+}
+.quesclass_list .quesclass_operation a.quesclass_pic1_no {
+	background: url(../images/contact_group/quesclass_ico_edit1_no.png) no-repeat 14px center;
+	margin-left: 10px;
+	color: #666666;
+	border-color:#666;
+}
+
+.quesclass_list .quesclass_operation a.quesclass_pic2 {
+	background: url(../images/contact_group/quesclass_ico_del4.png) no-repeat 14px center;
+	margin-left: 12px
+}
+.quesclass_list .quesclass_operation a.quesclass_pic2_no {
+	background: url(../images/contact_group/quesclass_ico_del4_no.png) no-repeat 14px center;
+	margin-left: 10px;
+	color: #666666;
+	border-color:#666;
+}
+.quesclass_list .quesclass_move a.check_no {
+	color: #666666;
+	border-color:#666;
+}
+
+
+.quesclass_box_body a.btn_blue {
+	padding: 0 10px;
+	line-height: 35px;
+	min-width: 122px;
+	display: inline-block;
+	color: #fff;
+	background: #00a8ee;
+	border: 1px solid #0097d6;
+	border-radius: 2px;
+	text-align: center;
+	font-size: 14px;
+	position: relative;
+	top: 0px;
+	left: 89px;
+}
+
+.quesclass_box_body a.btn_blue:hover {
+	color: #fff;
+	background: #0097d6;
+	border: 1px solid #0097d6;
+}
+
+.quesclass_box_body a.btn_gray {
+	color: #fff;
+	background: #ababab;
+	border: 1px solid #8b8b8b;
+}
+
+.quesclass_box_body a.btn_gray:hover {
+	color: #fff;
+	background: #939393;
+	border: 1px solid #8b8b8b;
+}
+
+/*.quesclass_add_grouping input.quesclass_addclass_input{*/
+	/*height: 23px;*/
+	/*border: 1px solid #cccccc;*/
+	/*color: #a6a6a6;*/
+	/*overflow: auto;*/
+	/*background: #fff;*/
+	/*margin: 0 5px;*/
+	/*padding-left: 5px;*/
+/*}*/
+
+.quesclass_add_grouping input#classNum{
+	width: 35px;
+	margin: 0 5px;
+}
+
+.quesclass_add_grouping input#classAlias{
+	width: 124px;
+	margin: 0 5px;
+}
+
+.op-reminder-a{
+	width: 19px;
+	height: 19px;
+	display: inline-block;
+	vertical-align: central;
+	margin-right: 6px;
+	padding-bottom: -2px;
+	cursor: pointer;
+	background: url(../images/contact_group/op_reminder_a.png?v=1.9.8) 0 0 no-repeat;
+	background-size: 18px;
+	vertical-align: sub;
+	position: relative;
+}
+
+.editclass_hlep_2{
+	width: 236px;
+	padding: 10px;
+	border: 1px solid #cdcdc9;
+	font-size: 12px;
+	position: absolute;
+	top: 20px;
+	left: 140px;
+	background: #e5eff1;
+	line-height: 18px;
+	color: #444;
+	text-align: left;
+	border-radius: 4px;
+	z-index: 999;
+}
+
+.editclass_hlep_2 .jt{
+	width: 12px;
+	height: 9px;
+	background: url(../images/ico_jt_down.png?v=1.9.8) no-repeat;
+	position: absolute;
+	bottom: -8px;
+	left: 110px;
+}
+
+
+
+/***** 通讯录 班级管理 选择班主任弹框1,2,3*****/
+.quesclass .quesclass_teacher {
+	width: 320px;
+	height: 395px;
+	background: #fff;
+	border-radius: 2px;
+	position: fixed;
+	left: 35%;
+	top: 10%;
+	z-index: 1000;
+	border: 1px solid #cfcfcb;
+	text-align: center;
+}
+
+.quesclass_teacher .quesclass_h1 p {
+	font-size: 16px;
+	margin-top: 16px;
+	color: #0085d0;
+	text-align: center
+}
+
+.quesclass_teacher .quesclass_input input {
+	border: 1px solid #cccccc;
+	color: #a6a6a6;
+	width: 85%;
+	height: 100%;
+	background: #fff;
+	font-size: 12px;
+	float: left;
+}
+
+.quesclass_teacher .searchbt {
+	display:block;
+	width:33px;
+	height:33px;
+	float: left;
+}
+
+.quesclass_teacher .quesclass_input {
+	margin: 25px auto 0;
+	width: 266px;
+	height: 31px;
+}
+
+.quesclass_teacher .teacher_list {
+	margin: 11px auto 0;
+	width: 266px;
+}
+
+.quesclass_teacher .list_wrap {
+	border: 1px solid #cfcfcb;
+	background: #fff;
+	overflow: scroll;
+	overflow-x: visible;
+}
+
+.quesclass_teacher .group_open .group_title  {
+	background: url(../images/ico_add_jt_up.png) no-repeat 12px;
+	display:block;
+	font-size: 14px;
+    color: #3e3e3e;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 26px;
+	background-color:#f1f1f1;
+}
+
+.quesclass_teacher .list_content {
+	height: 230px;
+	font-weight: normal;
+	text-align: left;
+}
+
+.quesclass_teacher .list_group {
+	border-bottom: 1px solid #cccccc;
+}
+
+.quesclass_teacher .group_title  {
+	font-size: 14px;
+	color: #3e3e3e;
+	height: 38px;
+	line-height: 38px;
+	background: url(../images/ico_add_jt_down.png) no-repeat 12px;
+	padding-left: 26px;
+	background-color:#f1f1f1;
+	display:block;
+	
+}
+
+.quesclass_teacher .user_list { 
+	display:none;
+}
+.quesclass_teacher .user_list li {
+	font-size: 12px;
+	height: 32px;
+	line-height: 32px;
+	padding-left: 40px;
+	margin-right: 7px;
+}
+.quesclass_teacher .user_list a {
+	display:block;
+}
+
+.quesclass_teacher .user_selected {
+	background: url(../images/ico_select.png) no-repeat center right #fff;
+	color: #59c66c;
+}
+
+.quesclass_teacher .phone {
+	color: #989898;
+}
+
+.quesclass_teacher .user_noselected {
+	background: url(../images/ico_noselect.png) no-repeat center right;
+	color: #989898;
+}
+
+.quesclass_teacher .quesclass_btn_blue {
+	padding: 8px 25px;
+	color: #fff;
+	background: #00a8ee;
+	border: 1px solid #0097d6;
+	border-radius: 2px;
+	text-align: center;
+	font-size: 12px;
+	position: relative;
+	top: 19px;
+}
+
+.quesclass_teacher a.quesclass_btn_blue:hover {
+	color: #fff;
+	background: #0097d6;
+	border: 1px solid #0097d6;
+}
+
+.quesclass_teacher a.quesclass_btn_gray {
+	background: #ababab;
+	border: 1px solid #8b8b8b;
+}
+.quesclass_teacher a.quesclass_btn_gray:hover {
+	background: #939393;
+	border: 1px solid #8b8b8b;
+}
+
+.quesclass_teacher .quesclass_none {
+	line-height: 40px;
+	position: relative;
+	top: 80px;
+	font-size: 14px;
+	color: #777777;
+}
+
+.quesclass_teacher .blue_b {
+	position: relative;
+	top: 173px;
+}
+
+/***** 通讯录 班级管理 分组管理弹框4*****/
+.quesclass .quesclass_add_grouping {
+	 width: 320px;
+	 height: 230px;
+	 background: #fff;
+	 border-radius: 2px;
+	 position: fixed;
+	 left: 0;
+	 top: 14%;
+	 z-index: 1000;
+	 border: 1px solid #cfcfcb;
+ }
+
+.quesclass .quesclass_add_grouping_1 {
+	width: 320px;
+	height: 260px;
+	background: #fff;
+	border-radius: 2px;
+	position: fixed;
+	left: 0;
+	top: 14%;
+	z-index: 1000;
+	border: 1px solid #cfcfcb;
+}
+
+.quesclass .quesclass_bg {
+	float: right;
+	margin-top: 2px;
+	display:block;
+}
+
+.quesclass_add_grouping .quesclass_h1 p {
+	font-size: 16px;
+	margin-top: 16px;
+	color: #0085d0;
+	text-align: center
+}
+
+.quesclass_add_grouping .quesclass_input {
+	width: 263px;
+	margin: 25px auto;
+	font-size: 12px;
+	color: #666666;
+}
+
+.quesclass_add_grouping .quesclass_input input {
+	width: 160px;
+	height: 21px;
+	border: 1px solid #cccccc;
+	color: #a6a6a6;
+	overflow: auto;
+	background: #fff;
+	margin-left: 10px;
+	padding-left: 5px;
+}
+
+.quesclass_add_grouping  .quesclass_input .quesclass_zhuyi {
+	background: url(../images/ico_warn1.png) no-repeat left center;
+	padding-left: 15px;
+	color: #ec5051;
+	position: relative;
+	top: 10px;
+	display: none;
+}
+
+.quesclass_add_grouping .quesclass_btn_blue {
+	padding: 8px 25px;
+	color: #fff;
+	background: #00a8ee;
+	border: 1px solid #0097d6;
+	border-radius: 2px;
+	text-align: center;
+	font-size: 12px;
+	position: relative;
+	left: 90px
+}
+
+.quesclass_add_grouping a.quesclass_btn_blue:hover {
+	color: #fff;
+	background: #0097d6;
+	border: 1px solid #0097d6;
+}
+
+.quesclass_add_grouping .quesclass_btn_gray {
+	padding: 8px 25px;
+	color: #fff;
+	background: #ababab;
+	border: 1px solid #8b8b8b;
+	border-radius: 2px;
+	text-align: center;
+	font-size: 12px;
+	position: relative;
+	left: 78px
+}
+
+.quesclass_add_grouping a.quesclass_btn_gray:hover {
+	color: #fff;
+	background: #939393;
+	border: 1px solid #8b8b8b;
+}
+
+/***** 通讯录 班级管理 删除弹框5*****/
+.quesclass .quesclass_delete {
+	width: 235px;
+	height: 115px;
+	background: #fff;
+	border-radius: 2px;
+	position: fixed;
+	left: 35%;
+	top: 10%;
+	z-index: 1000;
+	border: 1px solid #cfcfcb;
+	text-align: center;
+	margin: 45px
+}
+
+.quesclass_delete .quesclass_btn_red {
+	padding: 8px 25px;
+	color: #fff;
+	background: #ec5051;
+	border: 1px solid #ca4445;
+	border-radius: 2px;
+	text-align: center;
+	font-size: 12px;
+	position: relative;
+	bottom: -73px
+}
+
+.quesclass_delete .quesclass_btn_gray {
+	padding: 8px 25px;
+	color: #fff;
+	background: #ababab;
+	border: 1px solid #8b8b8b;
+	border-radius: 2px;
+	text-align: center;
+	font-size: 12px;
+	position: relative;
+	bottom: -73px
+}
+
+.quesclass_delete .quesclass_wenzi {
+	position: absolute;
+	top: 30px;
+	left: 34px;
+	font-size: 13px;
+}
+
+/***** 通讯录 班级管理 警告弹框6*****/
+.quesclass .quesclass_warn {
+	width: 235px;
+	height: 115px;
+	background: #fff;
+	border-radius: 2px;
+	position: fixed;
+	left: 35%;
+	top: 10%;
+	z-index: 1000;
+	border: 1px solid #cfcfcb;
+	text-align: center;
+	margin: 45px
+}
+
+.quesclass_warn .quesclass_btn_blue {
+	padding: 8px 25px;
+	color: #fff;
+	background: #00a8ee;
+	border: 1px solid #0097d6;
+	border-radius: 2px;
+	text-align: center;
+	font-size: 12px;
+	position: relative;
+	bottom: -80px
+}
+
+.quesclass_warn .quesclass_btn_gray {
+	padding: 8px 25px;
+	color: #fff;
+	background: #ababab;
+	border: 1px solid #8b8b8b;
+	border-radius: 2px;
+	text-align: center;
+	font-size: 12px;
+	position: relative;
+	bottom: -80px
+}
+
+.quesclass_warn .quesclass_wenzi {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+/***** 自定义下拉 *****/
+.select_box {
+	height: 33px;
+	line-height: 33px;
+	border: 1px solid #ddd;
+	color: #333;
+	position: relative;
+	text-align: left;
+	font-size: 14px;
+	outline: none;
+	border-radius: 3px;
+}
+
+.select_box .select_grade {
+	width: 100%;
+	height: 100%;
+	display: block;
+	color: #888;
+	text-indent: 5px;
+	overflow: hidden;
+}
+
+.select_box .arrow {
+	width: 30px;
+	height: 100%;
+	background: url(../images/ico_userjt.png) no-repeat center;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.select_box .arrow:hover {
+	background: url(../images/ico_userjt_h.png) no-repeat center;
+}
+
+.select_box .grade_text {
+	display:block;
+	padding-left: 10px;
+	color: #666;
+}
+.select_box .grade_text:hover {
+	color:#00a8ee;
+}
+
+#grade_list {
+	width: 100%;
+	max-height: 210px;
+	border: solid 1px #d4dbde;
+	position: absolute;
+	top: 33px;
+	left: -1px;
+	z-index: 2;
+	overflow-x: hidden;
+	overflow-y: auto;
+	display: none;
+	background: #fff;
+	border-radius: 3px;
+}
+
+.select_box ul li {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	display: block;
+	text-align: left;
+	text-indent: 5px;
+	cursor: pointer;
+}
+
+.select_box ul li:hover {
+	background: #f1f1f1;
+	color: #00a8ee;
+}

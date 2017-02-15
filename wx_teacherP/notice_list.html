@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="renderer" content="webkit">
+    <title>通知列表</title>
+    <link href="css/common.css?v=1.9.1" type="text/css" rel="stylesheet" />
+    <link href="css/notice.css?v=1.9.1" type="text/css" rel="stylesheet" />
+    <link href="./plugin/nprogress/nprogress.css?v=1.9.1" type="text/css" rel="stylesheet" />
+    <link href="./plugin/toastr/toastr.css?v=1.9.1" type="text/css" rel="stylesheet" />
+    <style>
+.qt-slide {overflow: hidden;width: 100%;}
+.qt-slide-wrap {overflow: visible;width: 5000px;position: relative;}
+.qt-slide-wrap > div {float: left;width: 50%;display: block;}
+</style>
+</head>
+<body>
+    <div id="qtslide" class="qt-slide">
+        <div class="qt-slide-wrap">
+            <!-- 主页面 -->    
+            <div id="mainPage" class="nicescrollContainer" style="background-color:#f5f5f5;">
+                <div class="nicescrollWrapper">
+                    <div class="noti_list">
+                        <ul id="noticeList">
+                    </ul>
+                    <div id="noData" class="no_date">
+                        <img src="images/no_date_not.png?v=1.9.1" />    
+                        <h2> <b>没有通知记录，您可以现在发一条</b>
+                        </h2>
+                        <a href="javascript:;" class="btn btn_blue">发通知</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 二级子页面 -->    
+        <div class="nicescrollContainer">
+            <div class="nicescrollWrapper">
+                <div class="detail">
+                    <!--通知详情区-->    
+                    <div id="detailBox" class="det_box">
+                        <div id="detail_info"  class="det_tit">
+                        </div>
+                        <div class="from">
+                            <div id="detail_time" class="time fl">2015-07-27 13:31</div>
+                            <div class=" func_box">
+                                <a id="detail_del" class="func_del" href="javascript:;">删除</a>
+                            </div>
+                        </div>
+                        <div class="see_data">
+                            <p id="detail_target">
+                                <!-- 共发给310人 -->    
+                                <br />    
+                            </p>
+                            <a id="detail_goDetailList" href="javascript:;">
+                                <span></span>
+                                
+                                <B>阅读情况：</B>
+                                已读 <em id="detail_readlabel">0</em>
+                                /未读
+                                <em id="detail_unreadlabel">0</em>
+                            </a>
+                            <a id="resend" class="ag_send">提醒未读</a>
+                        </div>
+                    </div>
+
+                    <!--互动留言区--> 
+                    <div class="mess-box" >
+                        <div class="mess_top" ><span class="ts_mess">展开信息可进行回复</span><i class="mess_tit"><em id="commentNum">0</em>人留言</i></div>
+                        <div id="detail_reply" class="list_mess" style="background:#fff;">
+                            <div style="text-align:center;">暂无留言</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 三级子页面 -->    
+        <div class="nicescrollContainer">
+            <div class="nicescrollWrapper" >
+                <div class="detail">
+                    <div class="det_box">
+                        <div class="target_tab">
+                            <h2 id="detail_total">共发给0人</h2>
+                            <div id="detailTab" class="tab_ul">
+                                <a class="sel" href="javascript:;">
+                                    未读 <b>（ <em id="detail_unread" >0</em>
+                                        人）</b> 
+                                </a>
+                                <a href="javascript:;">
+                                    已读 <b>（ <em id="detail_read">0</em>
+                                        人）</b> 
+                                </a>
+                            </div>
+                        </div>
+                        <div id="targetBox" class="target_detail">
+                            <div id="studentBox"></div>
+                            <div id="teacherBox"></div>
+                        </div>
+                        <div id="readTargetBox" class="target_detail" style="display:none;">
+                            <div id="readStudentBox"></div> 
+                            <div id="readTeacherBox"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="detail_unreadBtn" class="resend_footer" style="display:none;">
+                <a href="javascript:;" class="operate-all" >
+                    <span id="detail_selectall" class="op-check"></span>
+                    全选
+                </a>
+                <a id="detail_resend" href="javascript:;" class="btn btn_blue">再次发送</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./cmd/seajs/sea.js"></script>
+<script>    
+    seajs.config({
+        preload:[
+            './cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+        ],
+        project_version : '1.9.1'
+    });
+    seajs.use("./js/notice_list.js");
+</script>
+</body>
+</html>

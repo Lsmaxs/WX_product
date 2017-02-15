@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>    
+<meta http-equiv="Expires" content="0"/>
+<meta name="renderer" content="webkit">
+<title>通讯录-新增教师</title>
+<link href="css/common.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="css/contact.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="./plugin/toastr/toastr.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="./plugin/nprogress/nprogress.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<style>
+.add_student .li_box p b{color:#fe9105;}
+</style>
+</head>
+
+<body>
+<div class="nicescrollContainer">
+	<div class="nicescrollWrapper">
+		<div id="addBox" class="add_student" style="overflow:visible;visibility:hidden;">
+			<div class="main">
+				<div class="li_box">
+					<p>教师姓名<b>(必填)</b></p>
+					<input id="teaName" class="input_txt_name" type="text" />
+				</div>
+				<div class="li_box">
+					<p>教师手机号<b>(必填)</b></p>
+					<input id="teaPhone" class="input_txt_name" type="text" />
+				</div>
+				<div class="li_box">
+					<p>教师所属部门<b>(必填)</b></p>
+					<div id="teaDeptSelect" class="select_grade select_box"> <em>请选择所属部门</em><b></b>
+						<ul>
+							<li data-value="1" data-label="小一(1)班">小一(1)班</li>
+							<li data-value="1" data-label="小一(1)班">小一(2)班</li>
+							<li data-value="1" data-label="小一(1)班">小一(3)班</li>
+							<li data-value="1" data-label="小一(1)班">小一(4)班</li>
+							<li data-value="1" data-label="小一(1)班">小一(5)班</li>
+							<li data-value="1" data-label="小一(1)班">小一(6)班</li>
+						</ul>
+					</div>
+				</div>
+				<div class="li_box">
+					<p>教师角色<b>(必填)</b></p>
+					<div id="roleEdit" class="select_grade select_box"><em>请班级</em><b></b></div>
+					<!--下拉选择角色-->
+					<div id="roleSelect" class="select_role" style="display:none;bottom:-58px;top:auto;">
+						<ul>
+							<li id="roleSelectMaster" data-role="2" class="sel"><a href="javascript:;" class="class_master">班主任</a></li>
+							<li id="roleSelectOther" data-role="3"><a href="javascript:;">普通教师</a></li>
+						</ul>
+					</div>
+					<!--下拉选择班级-->
+					<div id="roleSelectClass" class="select_class" style="display:none;bottom:-28px;top:auto;">
+						<ul id="roleSelectClassList">
+							<!--
+							<li class="sel"><a href="javascript:;" class="class_master">小一(1)班</a></li>
+							<li><a href="javascript:;">小一(2)班</a></li>
+							<li><a href="javascript:;">小一(3)班</a></li>
+							<li><a href="javascript:;">小二(1)班</a></li>
+							<li><a href="javascript:;">小二(2)班</a></li>
+							<li><a href="javascript:;">小二(3)班</a></li>
+							<li><a href="javascript:;">小三(1)班</a></li>
+							<li><a href="javascript:;">小三(2)班</a></li>
+							-->
+						</ul>
+					</div>
+				</div>
+				<div class="li_box">
+					<p>任教班级与科目</p>
+					<div id="subjectEditBtn" class="select_grade select_box">
+						<em style="text-overflow:ellipsis;white-space:nowrap;box-sizing:border-box;padding-right:10px;">请选择</em><b></b>
+					</div>
+				</div>
+				<div class="bt_footer" style="text-align:center;padding-bottom:0;"><a id="submitBtn" href="javascript:;" class="btn btn_blue" style="width:80px;">保存</a></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--修改任教班级与科目弹层-->
+<div id="subjectPop" class="editclass" style="display:none;top:50px;left:100px;">
+    <div class="editclass_bg">
+        <div class="editclass_head">任教班级与科目<div class="close"><a href="javascript:;">关闭</a></div></div>
+        <div class="editclassx_body">
+            <div class="editclass_tit">
+                <ul>
+                    <li class="li_l">年级</li>
+                    <li class="li_m">班级</li>
+                    <li class="li_r">科目</li>
+                </ul>
+            </div>
+            <div class="editclass_con">
+                <ul id="subjectPopList">
+					<!-- 这里搞两个div只是为了用美化的滚动条过多的时候防止溢出-->
+					<div id="subjectPopListCon" style="width:100%;max-height:150px;">
+						<div id="subjectPopListWrap">
+						 <!--
+							<li data-subject="1"><span class="li_l">二年级</span><span class="li_m">2班</span><span class="li_r">语文</span><a href="javascript:;" class="del_classli"></a></li>
+							<li data-subject="1"><span class="li_l">二年级</span><span class="li_m">2班</span><span class="li_r">语文</span><a href="javascript:;" class="del_classli"></a></li>
+						 -->
+						</div>
+					</div>
+					<li id="subjectPopNew" data-show="0">
+						<span class="li_add">
+							<div id="subjectPopGrade" class="select_addclass"><em>请选择年级</em><b></b>
+								<ul>
+									<!--
+									<li data-code="1" data-name="一年级">一年级</li>
+									<li data-code="2" data-name="一年级">二年级</li>
+									-->
+								</ul>
+							</div>
+						</span>
+						<span class="li_add">
+							<div id="subjectPopClass" class="select_addclass"> <em>请选择班级</em><b></b>
+								<ul>
+									<!--
+									<li data-code="1" data-name="1班">1班</li>
+									<li data-code="2" data-name="1班">1班</li>
+									-->
+								</ul>
+							</div>
+						</span>
+						<span class="li_add">
+							<div id="subjectPopSubject" class="select_addclass"> <em>请选择科目</em><b></b>
+								<ul>
+									<!--
+									<li data-code="1" data-name="语文">语文</li>
+									<li data-code="2" data-name="数学">数学</li>
+									-->
+								</ul>
+							</div>
+						</span>
+						<span><a class="bt_ok" href="javascript:;">确认</a></span>
+                    </li>
+					
+                </ul>
+            </div>
+            <div class="editclass_bt" style="height:10px;">
+			</div>
+        </div>
+    </div>
+</div>
+
+<!-- 升级提醒遮罩层 -->
+<div class="notice_wrap" style="display:none;"></div>
+<div class="notice_model" style="display:none;top:20%;">
+	<div class="notice_model_title">系统正在升级中!</div>
+	<div class="notice_model_body">
+		<p>当前系统正处于毕业升级阶段，预计需要1~2天时间完成，请等待升级完成后再修改资料。</p>
+		<p>详情请咨询学校管理员或者联系我们的客服QQ：800105253。</p>
+	</div>
+</div>
+
+
+<script src="./cmd/seajs/sea.js"></script>
+<script>	
+	seajs.config({
+		preload:[
+			'./cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+		],
+		project_version : '1.9.1'
+	});
+	seajs.use("./js/contact_addteacher.js");
+</script>
+</body>
+</html>

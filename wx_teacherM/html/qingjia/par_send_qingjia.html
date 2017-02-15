@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>    
+<meta http-equiv="Expires" content="0"/>
+<meta name="renderer" content="webkit">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="../../css/common.css?v=${wx_version}"/>
+<link rel="stylesheet" type="text/css" href="../../css/leave.css?v=${wx_version}"/>
+<link rel="stylesheet" type="text/css" href="../../css/weui.min.css?v=${wx_version}"/>
+
+<link href="../../css/timepicker/mobiscroll.frame.css" rel="stylesheet" type="text/css" />
+<link href="../../css/timepicker/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+<title>家长发送请假</title> 
+<script>
+function WW(){return document.documentElement.clientWidth*100/320;}
+function _SETHTML(){document.getElementsByTagName('html')[0].style.fontSize=WW()+'px';}
+window.onload=_SETHTML;
+window.onresize=_SETHTML;
+_SETHTML();
+</script>
+</head>
+<body style="background:#ebebeb">
+<div class="Leave_con">
+<h2>请假时间：</h2>
+  <div class="Leave_tab">
+    <p><span>开始时间：</span>
+      <input name="leaveStartTime"  id="leaveStartTime" type="text"  class="time_input" value=""/>
+    </p>
+    <hr />
+    <p><span>结束时间：</span>
+      <input name="leaveEndTime" id="leaveEndTime" type="text"  class="time_input" value=""/>
+    </p>
+  </div>
+<h2>请假事由：</h2>
+  <div class="Leave_tab">
+    <p>
+     <textarea class="txt-area" name="content" id="content" placeholder="输入你需要发送的内容"></textarea>
+    </p>
+  </div>
+  
+<a style="margin-top:12px" href="javascript:;" class="bt_green" id="sendButton">发送</a> </div>
+<input type="hidden" id="userId" name="userId" value="" />
+<input type="hidden" id="cropId" name="cropId" value="" />
+<input type="hidden" id="teaId" name="teaId" value="" />
+<input type="hidden" id="stuId" name="stuId" value="" />
+<input type="hidden" id="jumpToTeacher" name="jumpToTeacher" value="" />
+<input type="hidden" id="schoolCode" name="schoolCode" value="" />
+<script src="../../js/cmd/seajs/sea.js" ></script>
+<script src="../../js/cmd/jquery/jquery/1.9.1/jquery.js"></script>
+<script src="../../js/timepicker/mobiscroll.core.js"></script>
+<script src="../../js/timepicker/mobiscroll.frame.js"></script>
+<script src="../../js/timepicker/mobiscroll.scroller.js"></script>
+<script src="../../js/timepicker/mobiscroll.util.datetime.js"></script>
+<script src="../../js/timepicker/mobiscroll.datetimebase.js"></script>
+<script src="../../js/timepicker/mobiscroll.datetime.js"></script>
+<script src="../../js/timepicker/mobiscroll.i18n.zh.js"></script>
+<script>
+
+
+var currYear = (new Date()).getFullYear();	
+$('#leaveStartTime').mobiscroll().datetime({
+    theme: $.mobiscroll.defaults.theme,     //皮肤样式
+    mode: 'scroller',      //日期选择模式
+    display: 'modal', //显示方式 
+    lang: 'zh',       // Specify language like: lang: 'pl' or omit setting to use default
+    startYear:currYear - 10, //开始年份
+	 endYear:currYear + 10, //结束年份
+	 dateFormat: 'yyyy-mm-dd',
+	 rows: 3,
+    stepMinute: 5  // 分钟间隔多少分
+});
+
+$('#leaveEndTime').mobiscroll().datetime({
+    theme: $.mobiscroll.defaults.theme,     //皮肤样式
+    mode: 'scroller',      //日期选择模式
+    display: 'modal', //显示方式 
+    lang: 'zh',       // Specify language like: lang: 'pl' or omit setting to use default
+    startYear:currYear - 10, //开始年份
+	 endYear:currYear + 10, //结束年份
+	 dateFormat: 'yyyy-mm-dd',
+	 rows: 3,
+    stepMinute: 5  // 分钟间隔多少分
+});
+
+
+seajs.config({
+	preload:[
+		'../../js/cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+	],
+	project_version : '${wx_version}'
+});
+seajs.use("../../js/qingjia/par_send_qingjia${wx_min}.js");
+
+</script>
+</body>
+</html>

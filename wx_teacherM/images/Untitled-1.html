@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+body {
+	font-size:16px;
+	margin:0;
+	line-height:18px;
+	padding:0;
+	background:#fbf9fe;
+	font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+	
+}
+.form_box{ padding:0 0 0 12px; background:#fff; margin:12px 0; border-bottom:1px solid #ececec;border-top:1px solid #ececec}
+.input_li{ padding:12px 15px 12px 0; border-bottom:1px solid #ececec; overflow:hidden; position:relative;
+padding-left:90px;
+ }
+.none_b{ border-bottom:none}	
+.input_li_l {
+    padding-right:1%;
+	width:90px;
+	float:left;
+	position:absolute; top:13px;
+	left:0;
+	
+	
+}	
+.input_li_r {
+    display: table-cell;
+    vertical-align: middle;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: nowrap;
+	width:2000px;
+ 
+}
+.t_input {
+    width:100%;
+	float:left;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    font-size: inherit;
+    color: inherit;
+    height:20px;
+    line-height:20px;
+}
+.t_select {
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    width: 100%;
+    font-size: inherit;
+    position: relative;
+    z-index: 1;
+	height:18px;
+    line-height:18px;
+   }
+.dy_more{
+	content: " ";
+    display: inline-block;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    height: 6px;
+    width: 6px;
+ 	color:#888;
+    border-style: solid;
+    position: absolute;
+    top:20px; 
+	 border-width:2px 2px 0 0;
+	 right:15px;
+   
+}
+
+</style>
+</head>
+<body>
+<div class="form_box">
+<div class="input_li">
+                        <div class="input_li_l">学校姓名</label></div>
+                        <div class="input_li_r">
+                            <input class="t_input" placeholder="请输入">
+                        </div>
+  </div>
+<div class="input_li">
+<div class="dy_more"></div>
+  <div class="input_li_l">年级
+  </div>
+  <div class="input_li_r">
+    <select class="t_select" name="select1">
+                                <option selected="" value="1">一年级</option>
+                                <option value="2">二年级</option>
+                                <option value="3">二年级</option>
+                             </select>
+  </div>
+</div>
+<div class="input_li">
+  <div class="input_li_l">学生姓名
+  </div>
+  <div class="input_li_r">
+    <input class="t_input" placeholder="请输入">
+  </div>
+</div>
+<div class="input_li none_b">
+  <div class="input_li_l">家长手机号
+  </div>
+  <div class="input_li_r">
+    <input class="t_input" placeholder="请输入">
+  </div>
+</div>
+</div>
+</body>
+</html>

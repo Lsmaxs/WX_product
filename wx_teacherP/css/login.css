@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document */
+body {font-family: arial,"微软雅黑";font-size: 12px;line-height: 1.5;}
+*{margin: 0; padding: 0;}
+h1, h2, h3, h4, h5, h6 {font-size: 100%;}
+ol, ul {list-style: outside none none;}
+address, caption, cite, code, dfn, em, strong, th, var, optgroup {font-style: normal;}
+input, button, textarea, select, optgroup, option {font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;}
+fieldset, img, a img, *:link img, *:visited img {border: 0 none;}
+a {text-decoration: none;}
+a:hover {text-decoration: none;}
+:focus {outline: 0 none;}
+table {border-collapse: collapse;border-spacing: 0;}
+caption, th {text-align: left;}
+sup, sub {font-size: 100%;vertical-align: baseline;}
+blockquote, q {quotes: none;}
+blockquote::before, blockquote::after, q::before, q::after {content: none;}
+.clearfix {}
+.clear, .clearfix::after {clear: both;display: block;height: 0;overflow: hidden;}
+.clearfix::after {content: ".";visibility: hidden;}
+.font_l{ text-align:left}
+.font_r{ text-align:right}
+
+
+
+body{ width:100%; height:100%;position:relative; }
+/*--顶部 logo--*/
+.logo_warp{ width:1200px; margin:auto; padding:10px 0;}
+.logo_warp span{ width:218px; height:31px; line-height:31px; display:block; float:right; background:url(../images/login/top_nav.jpg?v=1.9.1) no-repeat; font-size:14px; text-align:center; margin-top:12px; }
+.logo_warp span a{color:#777; display:50%; display:inline-block; padding:0 10px;}
+.logo_warp span a img{ vertical-align: middle; margin-right:3px;}
+
+/*--关注我们/客服-
+.logo_warp span.hd_r{ width:218px; height:31px; line-height:31px; display:block; float:right;  font-size:14px; text-align:center; position:relative;top:8px; }
+.logo_warp span.hd_r a{color:#777; display:50%; display:inline-block; padding:0 10px;}
+.logo_warp span.hd_r a img{ vertical-align: middle; margin-right:6px;}
+
+.pop_code{position:absolute;top:45px;left:-35px; padding:5px 0; background:#fff; font-size:12px; width:184px; text-align:center; border:1px solid #cccccc; box-shadow: #ccc 0px 0px 5px;border-radius:3px;}
+.pop_code .jt{width:11px;height:9px;background:url(../images/pop_upjt.png?v=1.9.1) no-repeat;position:absolute;top:-9px; left:48%}
+.pop_code p{ font-size:14px; line-height:22px; color:#333}
+.pop_code p b{ font-size:14px; color:#1fa9ff; font-weight:normal}
+-*/
+
+
+/*--顶部 登录--*/
+.top_warp{ height:480px; background:url(../images/login/log_img1.jpg?v=1.9.1) 20% 0 no-repeat #1fa9ff}
+.top_box{ width:1100px;height:480px; margin:auto; clear:both; overflow:hidden}
+.top_l_adv{ width:500px; text-align:center; padding:0; margin:0; float:left}
+.top_r_log{ width:300px; float:right; margin-right:10px;}
+
+.login {
+	background:#fff;
+	padding:25px;
+ 	width: 250px;
+	margin:90px auto 0;
+	border-radius:3px;
+box-shadow: 0 3px 12px rgba(0,0,0,.2);
+	
+}
+
+.login_mm{ padding:0; height:20px; line-height:20px; clear:left; overflow:hidden; color:#7a8698; margin-bottom:14px;}
+.login_mm a:link,.login_mm a:visited{ color:#7a8698}
+.login_mm a:hover{ color:#0085d0}
+a.b_login:link,a.b_login:visited{ display:block; height:40px; background:url(../images/login/bt_blue.gif?v=1.9.1) repeat-x; font-size:16px; color:#fff; text-align:center; line-height:40px; border:1px solid #1497ea;border-radius:3px; }
+a.b_login:hover{  background:#0091eb; }
+.login_mm span{ width:50%; float:left;}
+.login_mm span input{ vertical-align: middle; margin-right:2px;}
+.login h3{ font-size:16px; font-weight:bold; color:#0085d0; padding:0 0 14px;}
+.login_user{ border:1px solid #d0d9e6; height:38px; padding-left:10px; width:240px; line-height:38px; background:#f9fbff; margin-bottom:14px; color:#8e9db4;border-radius:3px; font-size:14px;}
+.login_pass{ border:1px solid #d0d9e6; height:38px; padding-left:10px; width:240px; line-height:38px; background:#f9fbff; margin-bottom:14px; color:#8e9db4;border-radius:3px; font-size:14px;}
+.login_yzm{ width:100px; height:30px; padding:0 5px; line-height:30px;  border:1px solid #aaabab; color:#a9a9a9;}
+
+
+.login a {
+    color: #0088CC;
+}
+
+/*--功能--*/
+
+.t_warp{ padding:35px 0; background:#f6f6f6;}
+.t_warp_m{ width:940px; margin:auto; padding:0 20px;}
+.t_warp_m h2{ text-align:center; font-size:32px; color:#1fa9ff; font-weight:100; padding-bottom:10px;}
+.t_warp_m p{ text-align:center; font-size:18px; color:#777}
+.fun_warp{ padding:35px 0 0; }
+.fun_list{ margin:auto; width:1200px; clear:left; overflow:hidden}
+
+.fun_list dl{ padding:0 3% 0 0; width:30.3%; height:103px; float:left; margin-bottom:40px;}
+.fun_list dl dt{ text-align:center; font-size:16px; line-height:30px; color:#000; float:left; margin-right:15px;}
+.fun_list dl dd{ font-size:16px; color:#777; }
+.fun_list dl dd.tit{ font-size:24px; color:#000; padding-top:4px;}
+
+.case_box{ margin:auto; width:1200px; text-align:center}
+
+/*--底部--*/
+.foot_warp{ background:#f6f6f6; padding:15px; text-align:center; font-size:12px; color:#999;}
+.foot_warp a{color:#999;}
+
+
+/*--浮动窗口关注我们/客服--*/
+.float_winR{ width:70px;background:#eeeeee;box-shadow:0 0 6px #999;position:fixed;top:40%;right:20px;border-radius:3px;z-index:100; }
+.float_winR a{color:#333; text-align:center; padding:11px 0 8px 0; display:block; }
+.float_winR a img{ margin-bottom:3px;}
+.float_winR a.line_b{ border-bottom:1px solid #cccccc;}
+.pop_code1{position:absolute;top:-45px;right:86px; padding:5px 0; background:#fff; font-size:12px; width:184px; text-align:center; border:1px solid #cccccc; box-shadow: #ccc 0px 0px 5px;border-radius:3px;}
+.pop_code1 .jt{width:9px;height:11px;background:url(../images/pop_rjt.png?v=1.9.1) no-repeat;position:absolute;top:80px; right:-9px;}
+.pop_code1 p{ font-size:14px; line-height:22px; color:#333;}
+.pop_code1 p b{ font-size:14px; color:#1fa9ff; font-weight:normal;}

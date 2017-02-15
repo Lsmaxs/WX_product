@@ -1,0 +1,143 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{ width:100%; height:100%;position:relative; background:#fff;}
+
+/*问卷列表*/
+.scorbar{text-align:right;padding:10px 0 10px;line-height:30px; background:#fff; text-align:right; position: fixed; top:0; right:10px; width:100%; z-index:1 }
+.scorbar span{float:left;color:#3b84b2;font-size:15px;display:none;}
+.scorlist{padding:52px 20px 10px; font-size:12px; font-family:"微软雅黑"; background:#fff}
+.scorlist_box{padding:0; background:#fff;border-radius:3px; font-size:14px; color:#999;  border:1px solid #dcdcdc; margin-bottom:12px; position:relative}
+.scorlist_from{clear:left; overflow:hidden;  border-top:1px solid #eff1f3; margin:0 10px; line-height:46px; text-align:right; color:#555}
+.scorlist_from b{ color:#fe9105}
+.scorlist_from a{ color:#00a8ee; text-decoration:underline}
+.dy_tit{ padding:0 10px; height:50px; line-height:50px; font-size:16px; color:#000; font-weight:100; background:#f5f5f5; border-bottom:1px solid #eaeaea}
+
+.scorlist .bt_send{ width:83px; text-align:center; border-radius:3px; height:30px; background:#00a8ee; line-height:30px; border:1px solid #008fca; display: inline-block; font-size:14px; color:#fff; margin-left:8px; text-decoration:none}
+.scorlist .bt_send:hover{ background:#008fca}
+.scorlist .bt_send_no{ width:83px; text-align:center; border-radius:3px; height:30px; background:#e9e9e9; line-height:30px; border:1px solid #d8d8d8; display: inline-block; font-size:14px; color:#888; margin-left:8px; text-decoration:none}
+
+.dy_tit a,.dy_tit a:hover{color:#008ac4;}
+
+.dy_tit span.tit_time{ width:150px; line-height:50px; font-size:12px; text-align:right; color:#888; text-align:right;padding-left: 6px;}
+.dy_tit span.edit_ok{  width:58px; height:23px;  text-align:center; color:#2ac06d; float:right; font-size:14px;}
+.dy_tit span.edit_void{  width:58px; height:23px;  text-align:center; color:#ff0000; float:right; font-size:14px;}
+.dy_tit .bt_void{  width:33px; padding:0 10px 0 24px; height:26px; line-height:26px;  text-align:center; color:#777; float:right; font-size:14px; border:1px solid #e0e0e0;  background:url(../images/ico_void.png?v=1.9.1) 8px center no-repeat #fff; display:block; vertical-align:middle; margin-top:10px; border-radius:3px;}
+a.bt_void:hover{ border:1px solid #a5a7aa; color:#666  }
+
+.dy_tit .bt_edit{  width:24px; height:24px; border:1px solid #f5f5f5; float:right; background:url(../images/score/ico_succ_edit.png?v=1.9.1) center no-repeat; margin:10px 3px; text-indent:-9999px; overflow:hidden}
+.dy_tit .bt_edit:hover{ width:24px; height:24px; border:1px solid #dcdcdc; border-radius:20px;}
+.dy_tit .bt_del{  width:24px; height:24px; border:1px solid #f5f5f5; float:right; background:url(../images/score/ico_succ_del.png?v=1.9.1) center no-repeat; margin:10px 3px; text-indent:-9999px; overflow:hidden}
+.dy_tit .bt_del:hover{ width:24px; height:24px; border:1px solid #dcdcdc; border-radius:20px;}
+
+
+.scorlist .dy_con{font-size:14px; color:#333; padding:8px 10px 10px;  margin:0}
+.scorlist .dy_con ul{ list-style:none;line-height:25px;font-size:12px;padding-bottom:8px; overflow:hidden;min-height: 25px;}
+.scorlist .dy_con li{ clear:left; overflow:hidden;min-height: 25px;}
+.scorlist .dy_con li span{ float:left;}
+.scorlist .dy_con li .li_tit{ width:50%; padding-right:2%; overflow:hidden}
+.scorlist .dy_con li .li_state{ width:24%; text-align:center}
+.scorlist .dy_con li .li_state a{ color:#22bb5e; text-decoration: underline}
+.scorlist .dy_con li .li_state .ing{ color:#fe9105; font-weight:normal;padding-right: 25px;}
+.scorlist .dy_con li .li_time{ width:24%; text-align:right; color:#888;}
+
+.scorlist .import_box{ color:#555;position: relative; }
+.scorlist .bt_import{ display:inline-block; border-radius:3px; background: url(../images/score/ico_import.png) 10px center no-repeat #f9f9f9; width:75px; padding-left:18px; height:28px; border:1px solid #d9d9d9; line-height:28px; text-align:center; color:#00a8ee; margin-right:8px;}
+.scorlist .bt_import:hover{ border:1px solid #00a8ee;}
+.scorlist .import_box a.txt_down{ color:#00a8ee; text-decoration:underline}
+.bt_scoAdd{ width:93px; text-align:center; border-radius:3px; height:30px; background:#00a8ee; line-height:30px; border:1px solid #008fca; display: inline-block; font-size:14px; color:#fff; margin-right:15px;}
+.bt_scoAdd img{ vertical-align:middle; margin-right:5px;}
+.bt_scoAdd:hover{ background:#008fca;}
+
+
+
+/*弹出新建成绩*/
+.pop_bg{background:#fff; border:1px solid #e0e0e0;width:100%; box-shadow:0 0 5px #ccc;border-radius:3px;width:380px;  z-index:1000; background:#fff}
+.pop_head{height:44px; border-bottom:1px solid #dcdcdc; background:#f3f3f3; text-align:center; color:#00a8ee; line-height:44px; font-size:14px;}
+.pop_bg .con{ padding:0 15px; font-size:14px;}
+.pop_bg .con_tr{ height:45px; clear:left; overflow:hidden; position:relative}
+
+
+.pop_bg .con_tr_l{ width:70px; line-height:45px; text-align:right; float:left;}
+.pop_bg .con_tr_r{ width:275px; height:44px; line-height:44px; border-bottom:1px solid #e7e7e7; float:left;}
+.pop_bg .con_tr_r .txt{ width:275px; height:44px; line-height:44px; border:none; color:#999;}
+
+.pop_bg .con_tr_r span{ display:inline-block; padding-right:10px; color:#555;margin: 0 15px;cursor: pointer;}
+.pop_bg .con_tr_r span i.tp_radio{ width:18px; height:18px; background:url(../images/score/ico_radio2.png?v=1.9.1) bottom; display:inline-block; vertical-align:middle; margin-right:4px;}
+.pop_bg .con_tr_r span i.tp_radied{ width:18px; height:18px; background:url(../images/score/ico_radio2.png?v=1.9.1) top;display:inline-block;margin-right:4px; vertical-align:middle}
+
+
+.pop_bg .con .date_box{ width:44px; height:44px; background:url(../images/score/ico_date.png?v=1.9.1) center no-repeat; position:absolute; top:0; right:0;}
+.pop_head textarea{font-size:15px;color:#333;resize:none;}
+.pop_leave{border:none; width:100%; height:98px; color:#999}
+.pop_bt{padding:15px 0;text-align:center;}
+.pop_bt a{display:inline-block; height: 28px;  margin: 0;  padding: 0 10px; min-width:40px;  text-align:center;  font-size:14px;  line-height:28px;  border: 1px solid #c8c8c8;  border-radius: 2px;}
+
+.pop_bt a.btn_grey,.pop_bt a.btn_grey:visited{ color:#888; background:#fff; border:1px solid #c1c6ce; font-size:13px;}
+.pop_bt a.btn_grey:hover{ color: #555;   border:1px solid #c0c5cd;}
+
+.pop_bt a.btn_ok,.pop_bt a.btn_ok:visited{ color:#333; background:#f4f4f4;border:1px solid #969aa1; font-size:13px;}
+.pop_bt a.btn_ok:hover{ color: #000; background:#f5f5f5;  border:1px solid #969aa1;}
+.pop_bt .tips{width:100px; height:30px; line-height:30px; position:fixed; top:5px; right:70px; _position:absolute; _top:expression(documentElement.scrollTop+5+"px"); color:#fff;}
+.scorlist .dy_con .bt_ref{min-width: 42px;
+    height: 18px;
+    background: url(../images/score/ico_succ_ref.png) center no-repeat;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-left: 3px;
+    text-align: right;
+    line-height: 18px;
+    background-position: 0px 100%;
+        position: absolute;
+    margin-top: 4px;}
+.scorlist .dy_con .bt_ref:hover{  background:url(../images/score/ico_succ_ref_h.png?v=1.9.1) center no-repeat; background-position: 0px 100%;}
+
+/*无数据状态 0901*/
+.no_data{ text-align:center; padding-top:50px;display:none;position: absolute;width: 100%;z-index: 10;}
+.no_data h2{ height:25px; line-height:25px; background:url(../images/no_date_line.png?v=1.9.1) center no-repeat; text-align:center; padding:15px 0}
+.no_data h2 b{ padding:0 20px; font-size:14px; color:#999; background:#f5f5f5; font-weight:100}
+.no_data p{ text-align:center} 
+
+.no_data .bt_create{ width:83px; text-align:center; border-radius:3px; height:30px; background:#00a8ee; line-height:30px; border:1px solid #008fca; display: inline-block; font-size:14px; color:#fff; margin-left:8px; text-decoration:none}
+.no_data .bt_create{ background:#008fca}
+.no_data .bt_create_no{ width:83px; text-align:center; border-radius:3px; height:30px; background:#e9e9e9; line-height:30px; border:1px solid #d8d8d8; display: inline-block; font-size:14px; color:#888; margin-left:8px; text-decoration:none}
+
+.import_file{width: 100%;height: 100%;position: absolute;top: 0;left: 0;}
+
+.a_upload {position: relative;}
+
+.a_upload  input {position: absolute;font-size: 100px;right: 0;top: 0;opacity: 0;filter: alpha(opacity=0);cursor: pointer;}
+.detailed{color:blue;}
+/**
+.edit,.delete{
+	width:30px;
+	height:30px;
+	background:url(../images/score/ico_del.png?v=1.9.1) center no-repeat;
+	background-size: 100%;
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+}
+.edit{
+    background-position: 50% 0px;
+    right: 70px;
+}
+.delete{
+    background-position: 50% -35px;
+    right: 10px;
+}
+.refresh{
+	background:url(../images/score/ico_refresh.png?v=1.9.1) center no-repeat;
+	width: 20px;
+    height: 20px;
+    background-size: 100%;
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+**/
+
+

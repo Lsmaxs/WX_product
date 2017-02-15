@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
+<meta content="telephone=no" name="format-detection" />
+<title>花季送大礼，百万大礼等你拿</title>
+<link rel="stylesheet" type="text/css" href="./css/css.css"/>
+<script>
+function WW(){return document.documentElement.clientWidth*100/320;}
+function _SETHTML(){document.getElementsByTagName('html')[0].style.fontSize=WW()+'px';}
+window.onload=_SETHTML;
+window.onresize=_SETHTML;
+_SETHTML();
+</script>
+</head>
+
+<body class="bodybg" style="padding-bottom:0;">
+<div id="mainPage" class="main">
+	<div class="detail_box">
+		<h2>
+			您与百万大礼 只有一朵花开的距离~<br />
+			在这樱花盛开的季节，来一次浪漫约会吧！
+			<b>移动校园门户在花海中对您许下诺言：<br />
+			就在樱花飘落之前<br />
+			给你<em>无限次</em>抽奖机会<br />
+			把红包、iPad和iPhone送到您的身边......</b>
+		</h2>
+		<p style="padding:0.15rem 0; background:none">
+			<a id="ruleBtn" href="javascript:;" style="padding-right:0.06rem" ><img style="width:1.14rem" src="http://ks3-host-domain/yyhd/cjhd/images/bt5.png" /></a>
+			<img id="shareBtn" style="width:1.75rem" src="http://ks3-host-domain/yyhd/cjhd/images/bt4.png" />
+		</p>
+		<p><img src="http://ks3-host-domain/yyhd/cjhd/images/img1.jpg" /></p>
+		<p><img src="http://ks3-host-domain/yyhd/cjhd/images/img2.jpg" /></p>
+		<p><img src="http://ks3-host-domain/yyhd/cjhd/images/img3.jpg" /></p>
+		<p><img src="http://ks3-host-domain/yyhd/cjhd/images/img4.png" /></p>
+		<p style="padding:0.12rem 0">2016年3月15日-27日</p>
+		<p style="padding-top:0.12rem">
+			<a href="./gonglue.html"><img src="http://ks3-host-domain/yyhd/cjhd/images/img6.png" /></a>
+		</p>
+		<p style="font-size:0.12rem; padding:0.20rem 0 0.20rem">活动最终解释权由移动校园门户负责</p>
+	</div>
+</div>
+
+
+<!--活动规则-->
+<div id="rulePage" class="rule" style="display:none;">
+	<div class="tit">活动规则</div>
+	<table class="table1" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td width="70%">1、老师每次在手机端完成指定任务即可获得1次抽奖的机会，总次数上不封顶。</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					2.任务详情：<br/>
+					<b style="font-size:0.12rem; color:#888">(请根据学校已经启用的功能进行选做)</b>
+				</p>
+				<p id="withNotice" style="padding-top:0.06rem">
+					<b>发送通知：</b>每次全校发送或者班级发送通知可抽奖一次（发送对象超过5人）;<br/>
+					<b>发留言/回复留言：</b>每发/回复一次留言可抽奖一次(本任务最多可获得五次抽奖机会);<br/>
+					<b>发送班级相册：</b>不限发送相片数量，每发送一次可抽奖一次;<br/>
+					<b>邀请家长加入：</b>每转发&ldquo;邀请关注界面&rdquo;一次可抽奖一次（本任务最多可获得三次抽奖机会）。
+				</p>
+				<p id="noNotice" style="padding-top:0.06rem;display:none;">
+					<b>发留言/回复留言：</b>每发/回复一次留言可抽奖一次(本任务最多可获得五次抽奖机会);<br/>
+					<b>发送班级相册：</b>不限发送相片数量，每发送一次可抽奖一次;<br/>
+					<b>邀请家长加入：</b>每转发&ldquo;邀请关注界面&rdquo;一次可抽奖一次（本任务最多可获得三次抽奖机会）。
+				</p>
+			</td>
+		</tr>
+    </table>
+    <br/>
+	<div class="bt_box"><a href="javascript:;" class="bt_red1">返回主界面</a></div>
+</div>
+
+<!--分享tips-->
+<div id="sharePop" class="share_box" style="display:none;">
+	<img src="http://ks3-host-domain/yyhd/cjhd/images/fx.png" />
+</div>
+<!--分享tips背景-->
+<div id="sharePopBg" class="share_box_bg"></div>
+
+<script src="./cmd/seajs/sea.js"></script>
+<script>	
+	seajs.config({
+		preload:[
+			'./cmd/seajs/sea.mconfig.js?t='+(new Date()).getTime()
+		],
+		project_version : '1.0.5'
+	});
+	seajs.use("./js/introduce.js");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>    
+<meta http-equiv="Expires" content="0"/>
+<meta name="renderer" content="webkit">
+<title>作业列表</title>
+<link href="css/common.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="css/homework.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="./plugin/nprogress/nprogress.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<style>
+.qt-slide{overflow:hidden;width:100%;}
+.qt-slide-wrap{overflow:visible; width:5000px;position:relative;}
+.qt-slide-wrap > div{float:left;width:50%;display:block;}
+</style>
+</head>
+
+<body>
+
+
+<div id="qtslide" class="qt-slide">
+	<div class="qt-slide-wrap">
+		<!-- 主页面 -->
+		<div id="mainPage" style="background-color:#f5f5f5;">
+			<div class="nicescrollWrapper">
+				<div class="noti_list">
+					<ul id="noticeList">
+						<!--
+						<li>
+							<h2>2015年6月19日 11:00</h2>
+							<p>
+								<span>
+									<b>英语作业</b><br/>
+									<a href="javascript:;">请明天提醒小孩带上清洁工作，明天在学校进行大扫除，你的小孩需要带上水桶，另外请给小孩自备水杯。</a><br/>
+									<img src="images/img3.jpg?v=1.9.1" />
+									<img src="images/img4.jpg?v=1.9.1" />
+									<img src="images/img5.jpg?v=1.9.1" />
+								</span>
+								发给：小一（1）班、小一（2）班..（共50人）<br />
+								已完成/未完成：<em>40/10</em>
+								<a class="bt_det" href="javascript:;">详细</a>
+						   </p>
+						</li>
+						-->
+					
+					</ul>
+					<div id="noData" class="no_date">
+						<img src="images/no_date_not.png?v=1.9.1" />
+						<h2><b>没有作业记录，您可以现在发一条</b></h2>
+						<a href="javascript:;" class="btn btn_blue">发作业</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 二级子页面 -->
+		<div>
+			<div class="nicescrollWrapper">
+				<div class="detail">
+					<div id="detailBox" class="det_box">
+						<div class="from">
+							<div class="title fl"><b id="detail_subject">&nbsp;</b></div>
+							<div id="detail_time" class="time fl text_r">&nbsp;</div>
+						</div>
+
+						<div id="detail_info"  class="det_tit">
+							<!--
+							请明天提醒小孩带上清洁工作，明天在学校进行大扫除，你的小孩需要带上水桶，另外请给小孩自备水杯。 <br/>
+							<p>
+								<a class="img_narrow" href="javascript:;"><img src="images/img2.jpg?v=1.9.1" /></a>
+								<a class="img_narrow" href="javascript:;"><img src="images/img2.jpg?v=1.9.1" /></a>
+								<a class="img_narrow" href="javascript:;"><img src="images/img2.jpg?v=1.9.1" /></a>
+							</p>
+
+							<div class="down_file">
+								<img src="images/ico_word.gif?v=1.9.1" />通知文件
+								<span><a href="javascript:;" class="btn btn_grey">下载</a></span>
+							</div>
+							-->
+						</div>
+						<p>
+							<span id="detail_target" class="fl">&nbsp;</span>
+							<span class="tb_tit fr">
+								<a class="tb_l_sel" href="javascript:;">查看情况</a><a class="tb_r" href="javascript:;">完成情况</a>
+							</span>
+						</p>
+					</div>
+
+					<div id="readBox">
+						<a id="detail_unread" href="javascript:;" class="operate-class1"><span id="detail_unreadnum">未读（0人）</span><span class="jt_up"></span></a>
+						<div id="detail_unreadlist" class="fs_list">
+						</div>
+						<p id="detail_resendBars" class="text_r"><a href="javascript:;" class="operate-all" ><span id="detail_selectall" class="op-check"></span>全选</a><a id="detail_resend" href="javascript:;" class="btn btn_blue">再次提醒</a></p>
+						<a id="detail_read" href="javascript:;" class="operate-class1" >已读（0人）<span class="jt_down"></span></a>
+						<div id="detail_readlist" class="fs_list">
+						</div>
+					</div>
+					<div id="doneBox">
+						<a id="detail_undone" href="javascript:;" class="operate-class1"><span id="detail_undonenum">未完成（0人）</span><span class="jt_up"></span></a>
+						<div id="detail_undonelist" class="fs_list">
+							<!--
+							<a href="javascript:;" class="operate-btn"><span class="op-checked"></span>黄熙俊</a> 
+							<a href="javascript:;" class="operate-btn"><span class="op-check"></span>杨晋涵 </a> 
+							<a href="javascript:;" class="operate-btn"><span class="op-check"></span></span>炘琳</a>
+							<a href="javascript:;" class="operate-btn"><span class="op-checked"></span>朱明皓</a> 
+							<a href="javascript:;" class="operate-btn"><span class="op-check"></span>闫子瑜</a>
+							<a href="javascript:;" class="operate-btn"><span class="op-check"></span>晨朗</a> 
+							<a href="javascript:;" class="operate-btn"><span class="op-checked"></span>黄熙俊</a> 
+							<a href="javascript:;" class="operate-btn"><span class="op-check"></span>杨晋涵 </a> 
+							<a href="javascript:;" class="operate-btn"><span class="op-check"></span></span>炘琳</a>
+							-->
+						</div>
+						<a id="detail_done" href="javascript:;" class="operate-class1" >完成（0人）<span class="jt_down"></span></a>
+						<div id="detail_donelist" class="fs_list">
+							<!--
+							<a href="javascript:;" class="operate-btn"><span class="op-checked"></span>黄熙俊</a> 
+							<a href="javascript:;" class="operate-btn"><span class="op-check"></span>杨晋涵 </a> 
+							<a href="javascript:;" class="operate-btn"><span class="op-check"></span></span>炘琳</a>
+							<a href="javascript:;" class="operate-btn"><span class="op-checked"></span>朱明皓</a> 
+							<a href="javascript:;" class="operate-btn"><span class="op-check"></span>闫子瑜</a>
+							<a href="javascript:;" class="operate-btn"><span class="op-check"></span>晨朗</a> 
+							<a href="javascript:;" class="operate-btn"><span class="op-checked"></span>黄熙俊</a> 
+							<a href="javascript:;" class="operate-btn"><span class="op-check"></span>杨晋涵 </a> 
+							<a href="javascript:;" class="operate-btn"><span class="op-check"></span></span>炘琳</a>
+							-->
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div><!--end of wrapper-->
+</div>
+
+<script src="./cmd/seajs/sea.js"></script>
+<script>	
+	seajs.config({
+		preload:[
+			'./cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+		],
+		project_version : '1.9.1'
+	});
+	seajs.use("./js/homework_list.js");
+</script>
+
+</body>
+</html>

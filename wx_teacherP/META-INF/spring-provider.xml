@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc    classpath:/org/springframework/web/servlet/config/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/beans    classpath:/org/springframework/beans/factory/xml/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context    classpath:/org/springframework/context/config/spring-context-3.1.xsd
+		http://code.alibabatech.com/schema/dubbo    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+   <!-- 加载变量 -->
+   <bean class="com.qtone.wxq.commons.util.configuration.ZooKeeperPropertyPlaceholderConfigurer">
+	    <property name="order" value="1" />  
+	    <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+        <property name="ignoreResourceNotFound" value="true" />
+        <property name="locations">
+            <list>
+                <value>/META-INF/provider.properties</value>
+            </list>
+        </property>
+    </bean>
+    
+	
+	<!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+    <dubbo:application name="consumer-of-wxq-web-teacher"  />
+		
+	 <!-- 引用wxq组件的服务实现 -->
+    <dubbo:registry id="wxq_registry" address="${wxq.registry}" check="false" />
+    
+    <dubbo:reference registry="wxq_registry" 
+               id="iMkServiceProvider" 
+               interface="com.qtone.wxq.marketing.api.IMkServiceProvider" 
+               check="false" timeout="60000" />
+    
+    <dubbo:reference registry="wxq_registry" 
+               id="noticeProvider" 
+               interface="com.qtone.wxq.core.api.notice.NoticeProvider" 
+               check="false" timeout="60000" />
+               
+    <dubbo:reference registry="wxq_registry" 
+               id="iWxqUserBaseProvider" 
+               interface="com.qtone.wxq.core.api.base.IWxqUserBaseProvider" 
+               check="false" timeout="60000" />
+    
+    <dubbo:reference registry="wxq_registry" 
+               id="noticeParWapProvider" 
+               interface="com.qtone.wxq.core.api.notice.NoticeParWapProvider" 
+               check="false" timeout="60000"  />
+    
+    <dubbo:reference registry="wxq_registry" 
+               id="homeworkProvider" 
+               interface="com.qtone.wxq.core.api.homework.HomeworkProvider" 
+               check="false" timeout="60000" />
+    
+    <dubbo:reference registry="wxq_registry" 
+               id="homeworkSendProvider" 
+               interface="com.qtone.wxq.core.api.homework.HomeworkSendProvider" 
+               check="false" timeout="60000" />
+               
+    <dubbo:reference registry="wxq_registry" 
+               id="wordsProvider" 
+               interface="com.qtone.wxq.core.api.words.WordsProvider" 
+               check="false" timeout="60000" />
+               
+    <dubbo:reference registry="wxq_registry" 
+               id="wxMsgPushProvider" 
+               interface="com.qtone.wxq.core.api.messging.WxMsgPushProvider" 
+               check="false" timeout="60000" />
+               
+    <dubbo:reference registry="wxq_registry" 
+               id="iWxqRedisProvider" 
+               interface="com.qtone.wxq.internal.api.base.IWxqRedisProvider" 
+               check="false" timeout="60000" />
+               
+    <dubbo:reference registry="wxq_registry" 
+              id="iWxqAppLogProvider" 
+              interface="com.qtone.wxq.core.api.base.IWxqAppLogProvider" 
+              check="false"  timeout="60000"/>
+              
+    <dubbo:reference registry="wxq_registry" 
+              id="iClazzAlbumProvider" 
+              interface="com.qtone.wxq.core.api.clazzalbum.IClazzAlbumProvider" 
+              check="false" timeout="60000" />
+              
+    <dubbo:reference registry="wxq_registry" 
+              id="iSurveyProvider" 
+              interface="com.qtone.wxq.core.api.survey.ISurveyProvider" 
+              check="false" timeout="60000" />
+              
+    <dubbo:reference registry="wxq_registry" 
+              id="iQingjiaLeaveinfoProvider" 
+              interface="com.qtone.wxq.core.api.qingjia.IQingjiaLeaveinfoProvider" 
+              check="false" timeout="60000" />  
+              
+    <dubbo:reference registry="wxq_registry" 
+               id="iWxqLinkmanProvider" 
+               interface="com.qtone.wxq.core.api.base.IWxqLinkmanProvider" 
+               check="false" timeout="60000" />
+               
+    <dubbo:reference registry="wxq_registry" 
+               id="iWxqWxProvider" 
+               interface="com.qtone.wxq.core.api.base.IWxqWxProvider" 
+               check="false" timeout="60000" />  
+               
+    <dubbo:reference registry="wxq_registry" 
+            id="iNoticePermissionProvider" 
+            interface="com.qtone.wxq.core.api.notice.INoticePermissionProvider" 
+            check="false" timeout="60000" />  
+            
+            
+    <dubbo:reference registry="wxq_registry" 
+            id="iClazzCircleProvider" 
+            interface="com.qtone.wxq.core.api.clazzalbum.IClazzCircleProvider" 
+            check="false" timeout="60000" />
+
+	<dubbo:reference registry="wxq_registry"
+					 id="iExamProvider"
+					 interface="com.qtone.wxq.core.api.exam.IExamProvider"
+					 check="false" timeout="30000" />
+	<dubbo:reference registry="wxq_registry" 
+			  id="iWxqKafkaProvider" 
+			  interface="com.qtone.wxq.internal.api.base.IWxqKafkaProvider" 
+			  check="false" timeout="30000" />
+
+	<dubbo:reference registry="wxq_registry"
+					 id="iCustomerProvider" interface="com.qtone.wxqsub.mnts.api.ICustomerProvider" check="false"
+					 timeout="30000"/>
+	<dubbo:reference registry="wxq_registry" 
+               id="iMkCreditProvider" interface="com.qtone.wxq.marketing.api.IMkCreditProvider" 
+               check="false" timeout="60000" />
+
+	<dubbo:reference registry="wxq_registry"
+					 id="iWxSchoolProvider" interface="com.qtone.wxq.core.api.base.IWxSchoolProvider"
+					 check="false" timeout="60000" />
+
+    <!-- 引用ucenter组件的服务实现 -->
+    <dubbo:registry id="ucenter_registry" address="${ucenter.registry}" register="false" check="false" />
+
+	<dubbo:reference registry="ucenter_registry" 
+	          id="iAreaDataService" interface="com.qtone.open.api.basedata.api.IAreaDataService" 
+	          check="false" timeout="60000"  />	
+	          
+	<dubbo:reference registry="ucenter_registry" 
+	          id="iUserLoginService" interface="com.qtone.open.api.ucenter.IUserLoginService" 
+	          check="false" timeout="60000"  />
+	<dubbo:reference registry="ucenter_registry" 
+	          id="iSubjectDataService" interface="com.qtone.open.api.basedata.api.ISubjectDataService" 
+	          check="false" timeout="60000"  />
+	<dubbo:reference registry="ucenter_registry" 
+	          id="iUICWrite" interface="com.qtone.open.api.uic.IUICWrite"  check="false" timeout="60000"/>
+	          
+	<dubbo:reference registry="ucenter_registry" 
+	          id="iUICRead" interface="com.qtone.open.api.uic.IUICRead"  check="false" timeout="60000"/>
+	          
+	<dubbo:reference registry="ucenter_registry" 
+	          id="iBasedataRead" interface="com.qtone.open.api.basedata.api.IBasedataRead" check="false" timeout="30000" />
+	          
+	<dubbo:reference registry="ucenter_registry"
+	          id="iBasedataWrite" interface="com.qtone.open.api.basedata.api.IBasedataWrite" check="false" timeout="30000" />
+	          
+	<!-- 引用weixiao组件的服务实现 -->          
+	<dubbo:registry id="weixiao_registry" address="${weixiao.registry}" register="false" check="false" />  
+	
+	
+	<dubbo:reference registry="weixiao_registry" 
+	          id="iWeixiaoService" interface="com.qtone.paas.weixiao.service.IWeixiaoService" 
+	          check="false" timeout="60000"  />
+
+
+			
+</beans>

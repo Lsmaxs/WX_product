@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="../../css/common.css?v=${wx_version}"/>
+<link rel="stylesheet" type="text/css" href="../../css/my.css?v=${wx_version}"/>
+<link rel="stylesheet" type="text/css" href="../../css/weui.min.css?v=${wx_version}"/>
+<script>
+function WW(){return document.documentElement.clientWidth*100/320;}
+function _SETHTML(){document.getElementsByTagName('html')[0].style.fontSize=WW()+'px';}
+window.onload=_SETHTML;
+window.onresize=_SETHTML;
+_SETHTML();
+</script>
+<title>我</title>
+</head>
+
+<body >
+<div id="commonShow" class="date-wrap" style="display: none">
+    
+</div>
+<div id="selectRole" class="date-wrap" style="display: none" >
+    <div class="role_sel" >
+       <h2 style="text-align:left; padding:0 0 20px;">您既是家长又是老师，请分别修改相应角色的资料</h2>
+       <div class="sel_box" id="role_teacher" >
+       		<img src="../../images/role_teacher1.png" />
+            <h2>修改我的教师资料</h2>
+            <i></i>
+       </div>
+       <div class="sel_box" id="role_parent" > 
+       		<img src="../../images/role_parent1.png" />
+            <h2>修改我的家长资料</h2>
+            <i></i>
+       </div>
+    </div>
+</div>
+<input type="hidden" id="userId" name="userId" value="" />
+<input type="hidden" id="cropId" name="cropId" value="" />
+<script src="../../js/cmd/seajs/sea.js" ></script>
+<script>
+seajs.config({
+	preload:[
+		'../../js/cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+	],
+	project_version : '${wx_version}'
+});
+seajs.use("../../js/linkman/info_tea${wx_min}.js");
+</script>
+</body>
+</html>

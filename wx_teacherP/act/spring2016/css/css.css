@@ -1,0 +1,197 @@
+@charset "utf-8";
+html{font-size:100px;}
+*{ margin:0; padding:0; border:none; text-decoration:none;font-weight:normal;font-family:SimHei;list-style:none;box-sizing:border-box;}
+body{ width:100%;margin:0;font-size:0.12rem;color:#666;}
+
+.bodybg{background:url(http://ks3-host-domain/yyhd/cjhd/images/bg.png?v=1.0.5) repeat;padding-bottom:20px;}
+
+/*抽奖页*/
+.main{ background:url(http://ks3-host-domain/yyhd/cjhd/images/hd_bg.jpg?v=1.0.5) no-repeat; background-size:100%; padding:1.60rem 0 0; margin:0}
+.zp_box{ width:2.70rem; height:2.85rem; margin:0.10rem auto 0; position:relative; background:url(http://ks3-host-domain/yyhd/cjhd/images/hd_zpb.png?v=1.0.5) no-repeat 0 bottom ; background-size:100%}
+.zp_box img{ width:2.70rem}
+.zp_box_bt{ position:absolute; top:30%; left:34%; width:0.9rem; height:0.9rem;}
+.zp_box_bt img{ width:100%}
+.txt_1{ text-align:center; font-size:0.15rem; color:#fff; width:1.70rem; margin:auto; height:0.28rem; background:#ff5c5d; border-radius:0.28rem; position:relative}
+.txt_1 b{ font-size:0.18rem; line-height:0.28rem}
+.txt_1 span{ width:0.23rem; height:0.08rem; display:block; position:absolute; top:0.28rem; left:45%; background:url(http://ks3-host-domain/yyhd/cjhd/images/ts_jt.png?v=1.0.5) no-repeat; background-size:100%}
+.bt_box{text-align:center; margin-top:0.13rem}
+.bt_box img{ width:1.32rem}
+.bt_org{ width:1.40rem; height:0.36rem; background:#ff8a00; box-shadow:-5px -5px 0px #ff7800 inset; line-height:0.36rem; text-align:center; font-size:0.16rem; display:inline-block; color:#fff; text-decoration:none; border-radius:36px;}
+
+.Win_list{ margin-top:0.3rem}
+.Win_list .tit{ padding:0}
+.Win_list .tit img{ width:100%}
+.Win_list .con_bg{ margin:0 5%; border-radius:5px; background:#e1f3b7; padding:1px; position:relative}
+.Win_list .list_t{ width:2.64rem; position:absolute; top:-0.22rem; left:0.13rem}
+.Win_list .list_t img{ width:100%}
+.Win_list .con{  border-radius:5px; padding:25px 10px 10px; border:1px  dashed #9bce2e}
+.Win_list .con p{ height:0.32rem; background:#fff; font-size:0.14rem; line-height:0.32rem; padding:0 0.1rem; margin-bottom:2px;}
+.Win_list .con p span{ color:#000000; padding-right:0.2rem;}
+.Win_list .con p b{ color:#e12626; font-weight:100 }
+.Win_list .con p b img{ margin-right:0.05rem; width:0.16rem; vertical-align:middle}
+
+
+/*规则页*/
+.rule{padding:0; margin:0;}
+.rule .tit{ height:0.42rem; background:#f23e4f; color:#fff; font-size:0.18rem; line-height:0.42rem; text-align:center;}
+
+.rule .table1{ margin:0 auto; width:96%}
+.rule .table1 th{ font-size:0.13rem; border-bottom:1px solid #cbcbcb; line-height:0.30rem; color:#777777; padding:0 0.10rem}
+.rule .table1 td{ font-size:0.15rem; border-bottom:1px solid #cbcbcb; padding:0.20rem 0.10rem; color:#000; line-height:0.20rem }
+.rule .table1 td b{ color:#f23e4f}
+.rule .table1 td img{ width:0.23rem; margin-right:0.05rem; vertical-align:middle}
+
+
+/*奖品页*/
+.my_Prize{ padding:0; margin:0;padding-bottom:0.3rem;}
+.my_Prize .tit{ height:0.42rem; background:#f23e4f; color:#fff; font-size:0.18rem; line-height:0.42rem; text-align:center}
+.my_Prize .code{ padding:0; margin:0}
+.my_Prize .code img{ width:100%}
+.my_Prize table{ margin:0.10rem auto; width:96%}
+.my_Prize table th{ font-size:0.13rem; border-bottom:1px solid #cbcbcb; line-height:0.30rem; color:#777777; padding:0 0.10rem}
+.my_Prize table td{ font-size:0.15rem; border-bottom:1px solid #cbcbcb; padding:0.10rem; color:#000; }
+.my_Prize table td b{ color:#f23e4f}
+.my_Prize table td img{ width:0.23rem; margin-right:0.05rem; vertical-align:middle}
+.my_Prize .norecord{text-align:center;height:1.5rem;line-height:1.5rem;font-size:0.18rem;}
+
+/*规则&奖品页*/
+.rule .bt_box,.my_Prize .bt_box{ text-align:center; margin:0.15rem 0 0}
+.rule .bt_red1,.my_Prize .bt_red1{ width:1.40rem; height:0.36rem; border:1px solid #f23e4f;  line-height:0.36rem; text-align:center; font-size:0.16rem; display:inline-block; color:#f23e4f; text-decoration:none; border-radius:36px; }
+
+
+
+
+/*中奖页*/
+.Prize{background:url(http://ks3-host-domain/yyhd/cjhd/images/bg.png?v=1.0.5) repeat; padding-bottom:20px;}
+.Priz_box{ padding:0; margin:0; background:url(http://ks3-host-domain/yyhd/cjhd/images/hd_bg1.jpg?v=1.0.5) no-repeat; background-size:100%; position:relative}
+.Prize_m { width:100%; }
+
+.Prize_box_hb{ width:2.59rem; margin:auto; }
+.Prize_m .psw{text-align:center; font-size:0.14rem; color:#fff; width:1.60rem; margin:0.08rem auto 0; height:0.24rem; line-height:0.24rem; background:#ff5c5d; border-radius:0.05rem; }
+.Prize_m .psw span{ padding:0 8px; border-left:1px solid #ffa0a1; display:inline-block; margin-left:0.08rem}
+.Prize_m h2{ font-size:0.18rem; color:#f32053; text-align:center; padding:0.15rem 0 0}
+.Prize_m h2 em{ font-style:normal; font-size:0.24rem}
+.Prize_m h2 a{ line-height:0.20rem;font-size:0.13rem; color:#ffec91; border:1px solid #ffec91; display:inline-block; border-radius:0.05rem; padding:0 0.06rem; margin-left:0.05rem}
+.Prize_m h4{ font-size:0.12rem; color:#fff; padding:0.12rem 0.05rem;  margin:0 0.385rem; border-radius:0 0 0.08rem 0.08rem;}
+.Prize_m h4 img{ width:100%}
+
+.Prize_box_sw{ width:2.59rem; margin:0 auto 0.12rem; }
+.Prize_box_sw img,.Prize_box_hb img{ width:100%}
+.Prize_m h3{ font-size:0.12rem; color:#fff; padding:0.06rem 0.40rem; line-height:0.18rem}
+
+
+/*版权*/
+.copyright_box{ font-size:0.10rem; color:#000; padding:0.15rem 0; text-align:center}
+
+
+/*弹框*/
+.pop_box{ width:2.70rem; padding-top:0.15rem; background:#f9464a; background-size:100%; position:absolute; top:35%; left:0.25rem; border-radius:0.10rem;z-index:1000;}
+.pop_box p{ padding:0 0.2rem; padding-bottom:0.20rem; line-height:0.18rem; font-size:0.14rem; color:#fff; min-height:0.6rem;}
+.pop_box .bt{ height:0.53rem; background:#e83335;  text-align:center; padding-top:0.08rem;border-radius:0 0 0.10rem 0.10rem}
+.pop_box .bt_close{ width:0.25rem; height:0.25rem; position:absolute; right:-0.06rem; top:-0.05rem}
+.pop_box .bt_close img{ width:0.25rem}
+.bt_yellow{ width:1.40rem; height:0.36rem; background:#f5e303; box-shadow:-5px -5px 0px #f5c500 inset; line-height:0.33rem; text-align:center; font-size:0.16rem; display:inline-block; color:#e60005; text-decoration:none; border-radius:36px;}
+
+
+/*动画效果*/
+.doudong{
+	animation:doudong 0.5s ease infinite;
+	-webkit-animation:doudong 0.5s ease infinite; 
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+}
+@keyframes doudong{
+	0% {transform:scale(1)}
+	100% {transform:scale(1.1)}
+}
+@-webkit-keyframes doudong{
+	0% {-webkit-transform:scale(1)}
+	100% {-webkit-transform:scale(1.1)}
+}
+
+
+
+
+.rollimg{
+	transition:transform 3s ease-out;
+	-webkit-transition:-webkit-transform 3s ease-out;
+}
+.rollimg_play{
+	animation:rollimg 2s linear infinite;
+	-webkit-animation:rollimg 2s linear infinite; 
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+}
+@keyframes rollimg{
+	0% {transform:rotate(0)}
+	100% {transform:rotate(360deg)}
+}
+@-webkit-keyframes rollimg{
+	0% {-webkit-transform:rotate(0)}
+	100% {-webkit-transform:rotate(360deg)}
+}
+
+
+.marque{max-height:3.4rem;overflow:hidden;}
+/*
+.marque_list{
+	animation:marque 10s linear infinite;
+	-webkit-animation:marque 10s linear infinite; 
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+}
+@keyframes marque{
+	0% {transform:translate(0,0)}
+	100% {transform:translate(0,-5.1rem)}
+}
+@-webkit-keyframes marque{
+	0% {-webkit-transform:translate(0,0)}
+	100% {-webkit-transform:translate(0,-5.1rem)}
+}
+*/
+
+
+/*操作指引*/
+.help_box{ padding:0 0 0.12rem;}
+.help_box .tit{ height:0.45rem; background:#3fc464; line-height:0.45rem; color:#fff; font-size:0.18rem; padding:0 0.12rem; border-bottom:0.01rem solid #1ca236; margin-bottom:0.12rem; position:relative}
+.help_box .con{ padding:0 0.12rem; }
+.help_box .con p{ font-size:0.13rem; color:#000}
+.help_box .con p.bg{ background:url(http://ks3-host-domain/yyhd/cjhd/images/gonglue/line.gif?v=1.0.5) 0.08rem repeat-y;}
+.help_box .con p em{ width:0.18rem; height:0.18rem; text-align:center; border-radius:0.18rem; font-style:normal; background:#3fc464; color:#fff; line-height:0.18rem; display:block; float:left; margin-right:0.08rem; }
+.help_box .con p img{ width:2.78rem; margin:0.12rem 0 0.12rem 0.26rem;}
+.help_box .con p span{ display:inline-block; width:90%;}
+
+.dy_some{ border-width:0 2px 2px 0;top:0.14rem; }
+.dy_more{ border-width:2px 2px 0 0;top:0.16rem; }
+.dy_more,.dy_some{
+	content: " ";
+    display: inline-block;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    height:0.10rem;
+    width:0.10rem;
+	color:#fff;
+    border-style:solid;
+    position: absolute;
+	right:0.12rem;
+}
+
+
+/*活动介绍*/
+.detail_box{ padding:0.5rem 0 0; }
+.detail_box h2{ font-size:0.16rem;line-height:0.20rem;text-shadow:1px 1px 1px #555; text-align:center; color:#fff; padding-bottom:0.12rem }
+.detail_box h2 b{ font-size:0.13rem; }
+.detail_box h2 b em{ font-size:0.17rem; color:#ffdc44; font-style:normal}
+.detail_box p{ padding:0; margin:0; color:#fff; text-align:center; font-size:0.18rem; background:#3fc464}
+.detail_box p img{ width:100%}
+.detail_box p.txt{ padding:0.12rem 0.12rem 0; line-height:0.20rem; font-size:0.15rem; text-align:left}
+.detail_box p.txt span{ padding:0 0.08rem; line-height:0.25rem; text-align: center; font-weight:bold; border-radius:0.04rem; display:inline-block; background:#ffe00c; color:#3fc464; margin:0.08rem 0;}
+
+/*分享层*/
+.share_box{ width:1.66rem;position:fixed; top:0; right:0.12rem;z-index:2;}
+.share_box img{ width:100%}
+.share_box_bg{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;opacity:0.6;z-index:1;display:none;}
+
+
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+<meta http-equiv="Expires" content="0"/>
+<meta name="renderer" content="webkit">
+<title>通知权限设置</title>
+<link href="./plugin/nprogress/nprogress.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="./plugin/toastr/toastr.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="css/common.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="css/targetselect2.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="css/loading.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<link href="css/my.css?v=1.9.1" type="text/css" rel="stylesheet" />
+<style>
+.qt-slide {overflow: hidden;width: 100%;}
+.qt-slide-wrap {overflow: visible;width: 5000px;position: relative;}
+.qt-slide-wrap > div {float: left;width: 50%;display: block;}
+</style>
+</head>
+<body>
+<div id="qtslide" class="qt-slide">
+    <div class="qt-slide-wrap"  id="pageMain" style="visibility:hidden;">
+        <!-- 主页面 -->
+        <div class="nicescrollContainer">
+            <div class="nicescrollWrapper">
+                <div class="notice_set line_b" id="reviewlist">
+                    <h1>#本页面仅管理员可见#</h1>
+                    <h2>
+                        通知审核人员设置
+                        <span style="font-size:12px; color:#9f9f9f;">（添加后学校所有教师发送的通知将同步推送至该老师的微信端，允许查看及删除）</span>
+                    </h2>
+                    <a href="javascript:;" class="add_user" id="addReviewTea">
+                        <span></span>
+                        添加老师
+                    </a>
+                </div>
+                <div class="notice_set" id="permisslist">
+                    <h2>
+                        教师通知权限
+                        <span style="font-size:12px; color:#9f9f9f;">（被添加的老师将允许向其他老师发送通知）</span>
+                    </h2>
+                    <a href="javascript:;" class="add_user" id="addPermissTea">
+                        <span></span>
+                        添加老师
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 二级子页面 -->
+		<div style="position:relative;">
+			<!--对象选择自定义滚动区-->
+			<div class="nicescrollContainer">
+				<div class="nicescrollWrapper">
+					<div id="targetBox" >
+						<!--搜索框 根据需要是否显示-->
+						<div class="targetselect_soso">
+							<div class="soso_ip">
+								<input type="text" value="" placeholder="搜索班级、分组或成员" />
+							</div>
+							<div class="soso_list" style="display:none;">
+								<!--
+								<a href="javascript:;">
+									<span class="soso_img"><img src="images/headimg1.jpg?v=1.9.1" /></span>
+									<span class="soso_name">杨小婧</span>
+									<span class="soso_class">小一(8)班</span>
+								</a>
+								-->
+							</div>
+						</div>
+
+						<!--已经选择的人 根据需要是否显示-->
+						<div class="targetselect_send_obj" style="display:none;">
+							<!--
+							<span class="send_obj_item">
+								<span class="send_obj_img"><img src="images/ico_file.gif?v=1.9.1" /></span>
+								<span class="send_obj_name">小二(1)班</span>
+								<a href="javascript:;" class="send_obj_del">删除</a>
+							</span>
+							-->
+							<!--暂不支持统计
+							<b>选择<em>0</em>人，其中<em>0</em>人未关注</b>
+							-->
+						</div>
+
+						<!--对象选择-->
+						<div class="targetselect">
+							<!-- 学生、教师-->
+							<div id="studentBox">
+								<!-- 大类标题 -->
+								<a href="javascript:;" class="operate-all"><span class="op-check" style="display:none;"></span>学生<span class="jt_up"></span></a>
+								<!-- 分组列表 -->
+								<div class="classlist"></div>
+							</div>
+							<!-- 学生、教师-->
+							<div id="parentBox">
+								<!-- 大类标题 -->
+								<a href="javascript:;" class="operate-all"><span class="op-check" style="display:none;"></span>家长<span class="jt_up"></span></a>
+								<!-- 分组列表 -->
+								<div class="classlist">
+									<!-- 每个分组包含一个a，div,用hr分隔 
+									<a href="javascript:;" class="operate-class"><span class="op-check"></span>小一（1）班<em>42人</em><span class="jt_up"></span></a>
+									<div class="fs_list">
+										<div class="gz_tit">
+											<p>已关注<em>34人</em></p>
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="杨小婧"></span>黄熙俊(黄xx爸爸)</a>
+											<a href="javascript:;" class="operate-btn"><span class="op-checked" data-uuid="111" data-name="杨小婧"></span>杨晋涵</a>
+										</div>
+										<div class="wgz_tit">
+											<p>未关注<em>6人</em></p>
+											黄xx、杨xx
+										</div>
+									</div>
+									-->
+								</div>
+							</div>
+							<!-- 学生、教师-->
+							<div id="teacherBox">
+								<!-- 大类标题 -->
+								<a href="javascript:;" class="operate-all"><span class="op-check" style="display:none;"></span>教师<span class="jt_up"></span></a>
+								<!-- 分组列表 -->
+								<div class="classlist"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--右侧确定-->
+			<div class="targetselect_footer_fixed" style="position:absolute;bottom:0;"><a id="selectTargetFinishBtn" href="javascript:;" class="btn btn_blue">选择</a></div>
+		</div>
+    </div>
+
+	<div id="loading">
+		<div class="loading" style="display:block;">
+			<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+		</div>
+	</div>
+</div>
+<script src="./cmd/seajs/sea.js"></script>
+<script>    
+    seajs.config({
+        preload:[
+            './cmd/seajs/sea.config.js?t='+(new Date()).getTime()
+        ],
+        project_version : '1.9.1'
+    });
+    seajs.use("./js/notice_permi_set.js");
+</script>
+</body>
+</html>

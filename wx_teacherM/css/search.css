@@ -1,0 +1,79 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body{ background:#efeff4}
+
+/*通讯录*/
+.search_box{ padding:0}
+.search_box h2{ font-size:12px; color:#999; padding:8px 0 0; text-align: center; font-weight: normal }
+.search_list{ background:#fff; border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5; margin:6px 0;}
+.search_list .tit{ margin-left:12px; font-size:13px; color:#777; padding:6px 12px 6px 2px; height:20px; line-height:20px;border-bottom:1px solid #e5e5e5; position: relative}
+.search_list .con{ padding:0; margin:0}
+.dy_some{ border-width:0 2px 2px 0; }
+.dy_more{ border-width:2px 2px 0 0;}
+.dy_more,.dy_some{
+	content: " ";
+    display: inline-block;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    height: 6px;
+    width: 6px;
+	color:#888;
+    border-style: solid;
+    position: absolute;
+    top:16px;
+	right:10px;
+   
+}
+
+.search_list .tit b{ font-size:12px; font-weight:normal; color:#999; padding-left:6px;}
+.search_list .tit b em{ font-style:normal; color:#ff9710}
+
+.follow_ico{ width:18px; height:18px; background:url(../images/ico_follow.png) no-repeat; background-size:18px; position:absolute; bottom:8px; left:30px; display:block}
+.search_list ul{border-top:0; border-left:0;border-bottom:1px solid #e5e5e5; margin:0; padding:0 }
+.search_list ul li a{ text-decoration: none; color:#333}
+.search_list ul li img{ width:42px; height:42px; border-radius:2px; float:left; margin-right:8px; vertical-align:middle}
+.search_list ul li b{font-size:16px; color:#000; padding:4px 0 2px; font-weight:normal; display:inline-block }
+.search_list ul .address_cont{ position:absolute; right:0; top:15px;display:block; text-align:right}
+.search_list ul .address_cont img{ width:32px; height:32px;}
+.search_list ul.par_list .address_cont{ position:absolute; right:0; top:10px;display:block; text-align:right}
+.search_list ul.par_list .address_cont img{ width:32px; height:32px;}
+
+.search_list ul .address_add{ position:absolute; right:12px; top:15px; display:inline-block; height:20px; line-height:20px; background:url(../images/ico_inv.png) 0 center no-repeat; background-size:17px; padding-left:22px; font-size:12px; color:#04be02}
+
+
+.search_list ul li em{ font-size:12px; font-style:normal; color:#999}
+
+/*通讯录-家长列表*/
+.search_list ul.par_list{ padding:5px 0;margin-left:12px;border-bottom:1px solid #e5e5e5;}
+.search_list ul.par_list li{ padding:5px 10px 5px 0; height:42px;  font-size:14px;color:#555; position:relative; clear:left;  position:relative }
+.search_list ul.par_list_noph{ padding:5px 0;margin-left:12px;border-bottom:1px solid #e5e5e5;}
+.search_list ul.par_list_noph li{ padding:5px 10px 5px 0; height:42px; line-height:36px;  font-size:14px;color:#555; position:relative; clear:left;  position:relative }
+
+
+/*通讯录-教师列表*/
+.search_list ul.tea_list{ padding:0;margin-left:12px;border-bottom:1px solid #e5e5e5;}
+.search_list ul.tea_list li{ padding:10px 5px 10px 0; height:42px; font-size:14px; color:#555; position:relative; clear:left; border-bottom:1px solid #e5e5e5;  position:relative }
+.search_list ul.tea_list_noph{ padding:0;margin-left:12px;border-bottom:1px solid #e5e5e5;}
+.search_list ul.tea_list_noph li{ padding:10px 5px 10px 0; height:42px;line-height:36px; font-size:14px; color:#555; position:relative; clear:left; border-bottom:1px solid #e5e5e5;  position:relative }
+
+
+
+.search{  border-bottom:1px solid #d6d6d9; background:#ebebf0; padding:8px 12px; position:relative}
+.search a.btn{ width:.125rem; height:.1rem; padding-right:.2em; padding-left:.2em;border-right:1px solid #d6d6d9; display:block; text-align:center;}
+
+
+
+.search a.btn img{width:.125rem; height:.1rem;}
+.search input[type="text"]{ width:87%; padding:0 2% 0 11%; background: url(../images/search-ico.png) 8px center no-repeat #fff; background-size:16px; border:none; font-size:14px; height:30px; line-height:30px;border-radius:3px;}
+.line_h42{ line-height:42px;}
+.line_h21{ line-height:21px;}
+
+
+
+
+
+
+
+a.de_src{ width:22px; height:22px; background:url(../images/ico_del_ser.png) no-repeat; background-size:15px; position:absolute; top:16px; right:12px; text-decoration:none;}
+

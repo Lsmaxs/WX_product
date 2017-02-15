@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
+<meta content="telephone=no" name="format-detection" />
+<title>时来运"转"-变身校园门户设计师! Yes,you can</title>
+<link href="./css/style.css" type="text/css" rel="stylesheet" />
+<link href="./css/loading.css" type="text/css" rel="stylesheet" />
+<script>
+function WW(){return document.documentElement.clientWidth*100/320;}
+function _SETHTML(){document.getElementsByTagName('html')[0].style.fontSize=WW()+'px';}
+window.onload=_SETHTML;
+window.onresize=_SETHTML;
+_SETHTML();
+</script>
+</head>
+
+<body>
+
+<!-- 中奖页 -->
+<div id="giftPage" style="display:none;">
+	<div class="img_box">
+		<!--<img src="./images/hd_zj_01.png?v=1.0.1"/>-->
+		<!--实物类型-->
+		<div class="Prize_m">
+			<div class="Prize_box"><img src="./images/jp_1.png?v=1.0.1" /></div>
+			<h1>身为世范，为人师表！</h1>
+			<h2>
+				恭喜你获得<br/>
+				Apple iPad mini4 一部<br/>
+				<b>兑奖口令：12345678</b>
+			</h2>
+			<h3>你可在抽奖页“我的奖品”查看你获得的奖品，稍后会有专人联系你沟通兑奖事宜。</h3>
+		</div>
+		<!--红包类型-->
+		<div class="Prize_m">
+			<div class="Prize_box1"><img src="./images/jp_1.png?v=1.0.1" /></div>
+			<h1>良师益友，桃李芬芳！</h1>
+			<h2>
+				恭喜你获得<br/>
+				<em>红包100元</em><br/>
+				<b>兑奖口令：12345678</b>
+			</h2>
+			 <h4><img src="./images/code1.png?v=1.0.1" /></h4>
+		</div>
+		<!--1元类型-->
+		<div class="Prize_m">
+			<div class="Prize_box1"><img src="./images/jp_1.png?v=1.0.1" /></div>
+			<h1>埋头苦干，兢兢业业</h1>
+			<h2>
+				恭喜你获得<br/>
+				<em>1元爱心基金</em><br/>
+			</h2>
+			<h5>谢谢你的参与。活动结束后，活动方统一将善款捐给【中华社会救助基金会】的“留守儿童新年愿望”公益项目。</h5>
+		</div>
+	</div>
+	<!--<div class="bt_box"><a href="javascript:;" class="bt_red">查看我的奖品</a></div>-->
+</div>
+
+
+
+<!--弹框-->
+<div id="msgBox" class="pop_box" style="display:none;">
+	<p id="msgBox_msg">抽奖机会已经用完啦。马上分享你最新更新的文章吧！越多人阅读你的文章，就有越多抽奖机会哦！</p>
+	<div class="bt"><a href="javascript:;" class="bt_yellow">我知道了</a></div>
+</div>
+
+
+<div id="loading" class="loading">
+	<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</div>
+<script src="./cmd/seajs/sea.js"></script>
+<script>	
+	seajs.config({
+		preload:[
+			'./cmd/seajs/sea.mconfig.js?t='+(new Date()).getTime()
+		],
+		project_version : '1.0.1'
+	});
+	seajs.use("./js/gift.js");
+</script>
+</body>
+</html>

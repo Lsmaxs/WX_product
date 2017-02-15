@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*--搜索栏--*/
+.targetselect_soso{ height:27px; padding:7px 16px; clear:both; position:relative;}
+.targetselect_soso .soso_ip{ width:294px; height:25px; line-height:25px; border:1px solid #dadada; float:right; position:relative}
+.targetselect_soso .soso_ip input{ width:264px; height:25px; background:url(../images/ico_Search.png?v=1.9.1) 0 center no-repeat; padding-left:30px; border:none; text-align:left; color:#999}
+/*搜索结果*/
+.targetselect_soso .soso_list{ width:294px;max-height:340px;overflow-y:auto; border:1px solid #dadada; background:#fff; position:absolute; top:33px; right:16px; z-index:1}
+.targetselect_soso .soso_list a{ height:24px; line-height:24px; padding:5px 15px 5px 10px; font-size:12px;display:block;color:#333; }
+.targetselect_soso .soso_list a:hover{ background:#fcf2c1; }
+.targetselect_soso .soso_list a span{display:inline-block;vertical-align:middle;}
+.targetselect_soso .soso_list a .soso_img img{ width:24px; height:24px; vertical-align:middle; margin-right:8px;}
+.targetselect_soso .soso_list a .soso_name{width:130px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.targetselect_soso .soso_list a .soso_class{ float:right;width:80px; text-align:right;font-size:12px;color:#999;font-weight:100;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+
+
+/*--已经选择的人--*/
+.targetselect_send_obj{ display:block;padding:9px 15px 6px 11px; border-top:1px solid #e0e0e0; line-height:24px;clear:left;overflow:hidden;color:#777;}
+.targetselect_send_obj .send_obj_item{display:inline-block;/*width:107px;*/height:24px; line-height:24px; background:#eeeeee; color:#555; margin-right:8px;margin-bottom:3px;}
+.targetselect_send_obj .send_obj_item span{display:inline-block;vertical-align:middle;height:24px;}
+.targetselect_send_obj .send_obj_img{width:24px;margin-right:2px;}
+.targetselect_send_obj .send_obj_img img{ width:23px; height:23px;}
+.targetselect_send_obj .send_obj_del{ width:24px; height:24px; background:url(../images/ico_t_close1.png?v=1.9.1) center no-repeat; text-indent:-9999px; overflow:hidden; float:right;}
+.targetselect_send_obj .send_obj_del:hover{ background:url(../images/ico_del1.png?v=1.9.1) center no-repeat; background-size:16px;}
+.targetselect_send_obj b{display:block;word-break:break-all;font-weight:normal;}
+.targetselect_send_obj em{ color:#000}
+
+
+/*--发送对象--*/
+.targetselect{padding-bottom:1px;border-radius:2px;font-size:14px;font-family:"微软雅黑";  margin:5px 15px 0 11px}
+.targetselect hr{ border-bottom:1px solid #ebebeb;border-top:none;border-left:none;border-right:none; margin:0 0 0 25px}
+.targetselect .jt_up{ width:18px; height:18px; background:url(../images/jt_down.png?v=1.9.1) no-repeat; position:absolute; top:15px; right:10px; background-size:16px;background-position:1px;}
+.targetselect .jt_down{ width:18px; height:18px; background:url(../images/jt_r.png?v=1.9.1)no-repeat; position:absolute;top:15px; right:10px;background-size:16px;background-position:1px;}
+/*大类*/
+.targetselect a.operate-all{ display:block; color:#333; padding:10px 0 10px 10px; border-bottom:1px solid #e0e0e0;background:#f2f2f2;  text-decoration:none; position:relative; }
+/*班级列表*/
+.targetselect .classlist{}
+.targetselect a.operate-class{ display:block; color:#333; padding:15px 12px 15px 25px; text-decoration:none;  position:relative; font-weight:bold}
+.targetselect a.operate-class em{ font-size:12px; color:#999; padding:0 6px; font-weight:normal}
+.targetselect .fs_list{background:#fff; margin:0 0 15px 50px;  font-size:14px;}
+.targetselect .fs_list hr{border-top:0; border-left:0;border-bottom:1px solid #e0e0e0;}
+.targetselect .gz_tit,.targetselect .wgz_tit{ font-size:14px; padding:0 0 10px 4px; color:#555;}
+.targetselect .gz_tit p,.targetselect .wgz_tit p{ padding-bottom:8px;}
+.targetselect .gz_tit p{ color:#34cc33;}
+.targetselect .wgz_tit p{ color:#f68a45;}
+.targetselect .gz_tit em,.targetselect .wgz_tit em{font-size:12px; color:#999; padding:0 6px; font-weight:normal}
+/*每个具体的人*/
+.targetselect a.operate-btn{display:inline-block;color:#555;padding:6px 0 6px 0;text-decoration:none;width:24%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+/*普通footer*/
+.targetselect_footer{ padding:0 30px 50px 15px; text-align:right;margin-top:15px;}
+/*fixed形式的footer*/
+.targetselect_fixedfooter{padding-bottom:50px;}
+.targetselect_footer_fixed{width:92%; padding:5px 4%; text-align:right; position:fixed; bottom:0; left:0; background:#e9e9e9; border-top:1px solid #cccccc; }
+

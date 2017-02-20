@@ -1,1 +1,0 @@
-define(function(require,exports,module){var a={},b=require("jquery");require("./stat");function c(){var a=b(".tit");a.on("click",function(){var a=b(this),c=a.next(),d=a.find("div");d.hasClass("dy_more")?(c.slideDown(200),d.removeClass("dy_more").addClass("dy_some")):(c.slideUp(200),d.removeClass("dy_some").addClass("dy_more"))})}c(),module.exports=a});
